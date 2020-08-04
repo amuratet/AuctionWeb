@@ -1,0 +1,173 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Accueil</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Auction web app">
+<meta name="author" content="Équipe Delta">
+<title>Nos amis les objets</title>
+<!-- 
+ -->
+<!-- Bootstrap core CSS -->
+<!--<link href="<%=request.getContextPath()%>/vendor/bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet"> -->
+<!--<link href="<%=request.getContextPath()%>/vendor/bootstrap-3.4.1-dist/css/bootstrap-theme.css" rel="stylesheet"> -->
+<link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
+	rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="<%=request.getContextPath()%>/css/ajustementsPerso.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<style>
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+.navbar {
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+	margin-bottom: 0;
+}
+/* Add a gray background color and some padding to the footer */
+footer {
+	background-color: #f2f2f2;
+	padding: 25px;
+}
+</style>
+</head>
+
+
+<body>
+
+	<%
+		String userConnected = (String) getInitParameter("userConnected");
+	Boolean isConnected = userConnected == "true";
+	/* isConnected = true; */
+	isConnected = true;
+	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
+	String titreArticle = "PC-gamer-de-la-mort";
+	String nomVendeur = "John Doe";
+	String finEnchere = "10/08/2020";
+	Integer nbArticles = 85; /* request.get...() */
+	Integer articlesParPage = 10;
+	Integer currentPagination = 0; /* à faire mouvoir */
+	Integer nbPages = nbArticles / articlesParPage;
+	Integer maxPaginationsDisplay = 6;
+	%>
+
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>Les objets sont nos amis</h1>
+			<p>Échanger, Recycler, Partager</p>
+		</div>
+	</div>
+
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
+		<a class="navbar-brand" href="#">AuctionWebapp</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#"><img alt="Logo"
+			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"
+			style="position: relative;"></a>
+		<div class="collapse navbar-collapse navFlex" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
+				<%
+					if (isConnected) {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">Vendre un article</a></li>
+				<%
+					}
+				%>
+			</ul>
+			<ul class="navbar-nav">
+				<%
+					if (isConnected) {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">Mon profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se déconnecter</a></li>
+				<%
+					} else {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se connecter</a></li>
+				<%
+					}
+				%>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- Liste des produits -->
+	<div class="container">
+		<div class="row">
+			<%
+				for (int i = 1; i <= 10; i++) {
+			%>
+			<div class="col-sm-6 articleDisplay">
+				<div class="card articleContent">
+					<div class="articleEntete"><%=titreArticle%></div>
+					<div class="unArticle">
+						<img src="<%=request.getContextPath()%>/images/computer.jpg" class="img-responsive"
+							alt="Image">
+						<p class="articleDescription">
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus
+							tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices
+							diam. <br> <a href="#" class="nomVendeur"> - <%=nomVendeur%> -
+							</a>
+						</p>
+					</div>
+					<div class="articlePied">
+						Fin des enchères :
+						<%=finEnchere%></div>
+				</div>
+			</div>
+
+			<%
+				}
+			%>
+		</div>
+		<div aria-label="Page navigation example articlesPagination">
+			<ul class="pagination">
+				<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
+				<%
+					for (int i = 1 ; i <= maxPaginationsDisplay && (currentPagination < nbArticles) ; i++) {
+						currentPagination += articlesParPage;
+						if (i == maxPaginationsDisplay) {
+						%>
+							<li class="page-item"><a class="page-link" href="#"> ... </a></li>
+						<%
+						} else {
+						%>
+							<li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
+						<%
+						}
+					}
+				%>
+				<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+			</ul>
+		</div>
+	</div>
+	<br>
+
+
+	<!-- FOOTER -->
+	<footer class="container-fluid text-center bg-dark text-secondary auctionFooter">
+		<p>AuctionWebTeam ©ENI-2020 Amilcar | Lewis | Victor</p>
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="<%=request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>
+	<script src="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+
+</body>
+</html>

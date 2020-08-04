@@ -1,0 +1,117 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*===================================================================*/
+/*                              main CSS                             */
+/*===================================================================*/
+
+.mainContainer {
+    background: linear-gradient(to bottom right, rgba(243, 196, 124, 0.3), rgba(44, 25, 31, 0.5)), url("../Patterns/circles-light.png");
+    font-family: "Linux Biolinum G","Fira Code", sans-serif;
+    height: 90vh;
+    padding: 2em 1em;
+}
+
+.titreH1 {
+    width: 10em;
+    text-align: center;
+    padding: .5em 0;
+    margin: 1em auto;
+    font-size: 2.5em;
+    color: #3d1c58;
+    text-shadow: 1px 1px 1px rgba(29, 5, 12, 0.2), 1px -1px 1px rgba(29, 5, 12, 0.2), -1px 1px 1px rgba(29, 5, 12, 0.2), -1px -1px 1px rgba(29, 5, 12, 0.2);
+    border-bottom: 1px solid #fff;
+    border-top: 1px solid #fff;
+    background-color: rgba(256,256,256,.1);
+}
+
+/*===================================================================*/
+/*                              tp1 Accueil                          */
+/*===================================================================*/
+
+.tp1accueilLinks {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.tp1accueilLinks a {
+    transition: .5s;
+    display: inline-block;
+    font-size: 1.5em;
+    background-color: rgb(225, 225, 225);
+    padding: 1em;
+    margin: 1em .5em;
+    border-radius: .2em;
+    border: 1px solid #fff;
+    text-shadow: 1px 1px 1px rgba(29, 5, 12, 0.1), 1px -1px 1px rgba(29, 5, 12, 0.1), -1px 1px 1px rgba(29, 5, 12, 0.1), -1px -1px 1px rgba(29, 5, 12, 0.1);
+}
+.tp1accueilLinks a:hover {
+    transition: .2s;
+    text-decoration: none;
+    box-shadow: .1em .1em .5em rgba(0,0,0,.1), .1em -.1em .5em rgba(0,0,0,.1), -.1em .1em .5em rgba(0,0,0,.1), -.1em -.1em .5em rgba(0,0,0,.1);
+    background-color: rgb(230, 230, 230);
+}
+
+.footerDivCopyright {
+    display: flex;
+    flex-float: row nowrap;
+    justify-content: center;
+}
+.copyrightFooter {
+    font-family: "Alien Encounters","Fira Code", sans-serif;
+    color: rgba(256,256,256,.3);
+}
+.signaturePart1 {
+    padding-left: 3em;
+    border-top: 1px solid;
+}
+.signaturePart3 {
+    padding-right: 3em;
+    border-bottom: 1px solid;
+}
