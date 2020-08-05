@@ -1,5 +1,24 @@
 @charset "UTF-8";
 
+/***************************************************
+			FONTS
+****************************************************/
+@font-face {
+	font-family: creamCake;
+	src: url("../fonts/CreamCake.ttf") format("truetype");
+}
+@font-face {
+	font-family: CaviarDreams;
+	src: url("../fonts/CaviarDreams.ttf") format("truetype");
+}
+@font-face {
+	font-family: PeintureFraiche;
+	src: url("../fonts/PeintureFraiche.ttf") format("truetype");
+}
+@font-face {
+	font-family: UrbanHeroes;
+	src: url("../fonts/UrbanHeroes.ttf") format("truetype");
+}
 
 /***************************************************
 			PAGE DEMO
@@ -49,27 +68,46 @@
 	margin: 2em;
 	border-radius: 1em;
 }
+
 /***************************************************
-			NAVBAR
+			ACCUEIL
 ****************************************************/
-.auctionNavbar {
- position: sticky;
- top: 0;
- z-index: 100;
- padding: 0 .5em;
- border-bottom: 2px solid #B91439
+.auctionEnteteAccueil {
+    background-image: linear-gradient(to bottom right, rgba(12, 157, 203, 0.5), rgba(12, 203, 67, 0.5)), url("../images/auction2.jpg");
+    background-attachment: fixed;
+    background-size: 100vw;
+    border-radius: 0;
 }
-.navFlex {
+.jumboH1 {
+	display: inline-block;
+ 	padding: .3em;
+	margin: 0 auto;
+	border-radius: .1em;
+	background: linear-gradient(to bottom right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	font-family: PeintureFraiche, sans-serif, serif;
+	font-size: 4em;
+	text-shadow: 1px 1px 5px rgba(255,255,255,.5), 1px -1px 5px rgba(255,255,255,.5), -1px 1px 5px rgba(255,255,255,.5), -1px -1px 5px rgba(255,255,255,.5);
+}
+.jumboH1 span {
+	font-family: UrbanHeroes,CaviarDreams,PeintureFraiche,creamCake, sans-serif, serif;
+	font-size: .5em;
+}
+.jumboMarteau {
+	position: relative;
+	top: -2rem;
+}
+.jumboPictos {
 	display: flex;
-	flex-flow: row nowrap;
-	justify-content: space-between;
+	flex-flow: row wrap;
+	justify-content: center;
 }
- 
-/***************************************************
-			FOOTER
-****************************************************/
-.auctionFooter {
-	border-top: 2px solid #B91439;
+.jumboPictos img {
+	display: block;
+	background-color: rgba(0,0,0,.5);
+	width: 4em;
+	margin: 0 .5em;
+	padding: .5em;
+	border-radius: 5%;
 }
 /***************************************************
 			ARTICLES
@@ -86,7 +124,7 @@
 	padding: .5em;
 	text-align: center;
 	border-bottom: 1px solid #fff;
-	background-color: rgba(12,157,203,.3);
+	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3));
 	border-radius: .3em .3em 0 0;
 }
 .articleDescription {
@@ -98,7 +136,7 @@ a.nomVendeur {
 }
 .articlePied {
 	padding: .5em 1em;
-	background-color: rgba(12,157,203,.1);
+	background-color: rgba(12, 203, 67, 0.3);
 	border-radius: 0 0 .3em .3em;
 }
 .unArticle {

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/***************************************************
+			NAVBAR
+****************************************************/
+.auctionNavbar {
+	position: sticky;
+	top: -1px;
+	z-index: 100;
+	padding: 0 .5em;
+	border-bottom: 2px solid #B91439;
+	margin-bottom: 50px;
+	border-radius: 0;
+}
+
+.navFlex {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+}
+
+/***************************************************
+			FOOTER
+****************************************************/
+.auctionFooter {
+	border-top: 2px solid #B91439;
+	background-color: #f2f2f2;
+	padding: 25px;
+}

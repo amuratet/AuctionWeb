@@ -13,31 +13,15 @@
 <!-- 
  -->
 <!-- Bootstrap core CSS -->
-<!--<link href="<%=request.getContextPath()%>/vendor/bootstrap-3.4.1-dist/css/bootstrap.css" rel="stylesheet"> -->
-<!--<link href="<%=request.getContextPath()%>/vendor/bootstrap-3.4.1-dist/css/bootstrap-theme.css" rel="stylesheet"> -->
 <link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="<%=request.getContextPath()%>/css/ajustementsPerso.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<style>
-/* Remove the navbar's default rounded borders and increase the bottom margin */
-.navbar {
-	margin-bottom: 50px;
-	border-radius: 0;
-}
-/* Remove the jumbotron's default bottom margin */
-.jumbotron {
-	margin-bottom: 0;
-}
-/* Add a gray background color and some padding to the footer */
-footer {
-	background-color: #f2f2f2;
-	padding: 25px;
-}
-</style>
+
 </head>
 
 
@@ -49,8 +33,8 @@ footer {
 	/* isConnected = true; */
 	isConnected = true;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
-	String titreArticle = "PC-gamer-de-la-mort";
-	String nomVendeur = "John Doe";
+	String titreArticle = "Lampe à pétrole bucolique";
+	String nomVendeur = "Avrell Dalton";
 	String finEnchere = "10/08/2020";
 	Integer nbArticles = 35; /* request.get...() */
 	Integer articlesParPage = 10;
@@ -59,10 +43,20 @@ footer {
 	Integer maxPaginationsDisplay = 6;
 	%>
 
-	<div class="jumbotron">
+	<div class="jumbotron auctionEnteteAccueil" style="margin-bottom: 0;">
 		<div class="container text-center">
-			<h1>Les objets sont nos amis</h1>
-			<p>Échanger, Recycler, Partager</p>
+			<h1 class="jumboH1">
+				LES OBJETS SONT NOS AMIS
+				<br><span>SITE D'ENCHERES AUTO-GEREES</span>
+			</h1><br />
+			<img src="<%=request.getContextPath()%>/images/auctionHammer.png" width="280em" class="jumboMarteau">
+			<div class="jumboPictos">
+				<img src="<%=request.getContextPath()%>/pictos/partner1.png" alt="picto1" />
+				<img src="<%=request.getContextPath()%>/pictos/cube.png" alt="picto2" />
+				<img src="<%=request.getContextPath()%>/pictos/share1.png" alt="picto3" />
+				<img src="<%=request.getContextPath()%>/pictos/share.png" alt="picto4" />
+				<img src="<%=request.getContextPath()%>/pictos/arrow.png" alt="picto5" />
+			</div>
 		</div>
 	</div>
 
@@ -74,8 +68,7 @@ footer {
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<a class="navbar-brand" href="#"><img alt="Logo"
-			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"
-			style="position: relative;"></a>
+			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
@@ -110,6 +103,7 @@ footer {
 	<!-- Liste des produits -->
 	<div class="container">
 		<div class="row">
+
 			<%
 				for (int i = 1; i <= 10; i++) {
 			%>
@@ -117,7 +111,7 @@ footer {
 				<div class="card articleContent">
 					<div class="articleEntete"><%=titreArticle%></div>
 					<div class="unArticle">
-						<img src="<%=request.getContextPath()%>/images/computer.jpg" class="img-responsive"
+						<img src="<%=request.getContextPath()%>/images/petroLampe3.jpeg" class="img-responsive"
 							alt="Image">
 						<p class="articleDescription">
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus
