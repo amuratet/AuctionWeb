@@ -86,6 +86,8 @@
 	padding: .5em;
 	text-align: center;
 	border-bottom: 1px solid #fff;
+	background-color: rgba(12,157,203,.3);
+	border-radius: .3em .3em 0 0;
 }
 .articleDescription {
 	padding: .5em;
@@ -95,8 +97,9 @@ a.nomVendeur {
 	font-style: italic;
 }
 .articlePied {
-	padding: .5em;
-	height: 3em;
+	padding: .5em 1em;
+	background-color: rgba(12,157,203,.1);
+	border-radius: 0 0 .3em .3em;
 }
 .unArticle {
 	display: flex;
@@ -109,8 +112,6 @@ a.nomVendeur {
 .articlesPagination {
 	display: flex!important;
 	justify-content: center!important;
-	margin: auto;
-	text-align: center;
 }
  
  

@@ -52,7 +52,7 @@ footer {
 	String titreArticle = "PC-gamer-de-la-mort";
 	String nomVendeur = "John Doe";
 	String finEnchere = "10/08/2020";
-	Integer nbArticles = 85; /* request.get...() */
+	Integer nbArticles = 35; /* request.get...() */
 	Integer articlesParPage = 10;
 	Integer currentPagination = 0; /* à faire mouvoir */
 	Integer nbPages = nbArticles / articlesParPage;
@@ -136,8 +136,9 @@ footer {
 				}
 			%>
 		</div>
-		<div aria-label="Page navigation example articlesPagination">
-			<ul class="pagination">
+	</div>
+		<div aria-label="Page navigation example">
+			<ul class="pagination articlesPagination">
 				<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
 				<%
 					for (int i = 1 ; i <= maxPaginationsDisplay && (currentPagination < nbArticles) ; i++) {
@@ -156,7 +157,6 @@ footer {
 				<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
 			</ul>
 		</div>
-	</div>
 	<br>
 
 
