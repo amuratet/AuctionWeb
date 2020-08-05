@@ -24,34 +24,55 @@ footer {
 
 </head>
 <body>
+	<%
+		String userConnected = (String) getInitParameter("userConnected");
+	Boolean isConnected = userConnected == "true";
+	/* isConnected = true; */
+	isConnected = true;
+	%>
 
-	<nav class="navbar navbar-inverse auctionNavbar">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#myNavbar">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#"><img alt="Logo"
-					src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
-					width="55" style="position: relative; top: -.7em;"></a>
-			</div>
-			<div class="collapse navbar-collapse" id="myNavbar">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Accueil</a></li>
-					<li><a href="#">Produits</a></li>
-					<li><a href="#">Enchères</a></li>
-					<li><a href="#">Retraits</a></li>
-					<li><a href="#">Contact</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Mon Compte</a></li>
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Panier</a></li>
-				</ul>
-			</div>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
+		<a class="navbar-brand" href="#">AuctionWebapp</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand" href="#"><img alt="Logo"
+			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
+			width="55" style="position: relative;"></a>
+		<div class="collapse navbar-collapse navFlex" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link" href="#">Accueil<span
+						class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
+				<%
+					if (isConnected) {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">Vendre un
+						article</a></li>
+				<%
+					}
+				%>
+			</ul>
+			<ul class="navbar-nav">
+				<%
+					if (isConnected) {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">Mon
+						profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se
+						déconnecter</a></li>
+				<%
+					} else {
+				%>
+				<li class="nav-item"><a class="nav-link" href="#">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se
+						connecter</a></li>
+				<%
+					}
+				%>
+			</ul>
 		</div>
 	</nav>
 
