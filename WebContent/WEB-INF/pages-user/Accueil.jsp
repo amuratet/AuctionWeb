@@ -45,22 +45,11 @@
 
 	<div class="jumbotron auctionEnteteAccueil" style="margin-bottom: 0;">
 		<div class="container text-center">
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e1f570b... [page Accueil] fin IHM
 			<h1 class="jumboH1">
 				LES OBJETS SONT NOS AMIS
 				<br><span>SITE D'ENCHERES AUTO-GEREES</span>
 			</h1><br />
 			<img src="<%=request.getContextPath()%>/images/auctionHammer.png" width="280em" class="jumboMarteau">
-<<<<<<< HEAD
-=======
-			<h1 class="jumboH1">Les objets sont nos amis</h1>
-			<img src="<%=request.getContextPath()%>/images/auctionHammer2.png" width="150em">
->>>>>>> 30ca951... [pageAccueil] wip couleurs changees + jumboTron
-=======
->>>>>>> e1f570b... [page Accueil] fin IHM
 			<div class="jumboPictos">
 				<img src="<%=request.getContextPath()%>/pictos/partner1.png" alt="picto1" />
 				<img src="<%=request.getContextPath()%>/pictos/cube.png" alt="picto2" />

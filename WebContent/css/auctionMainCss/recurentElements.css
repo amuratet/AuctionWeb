@@ -1,61 +1,24 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 @charset "UTF-8";
 
-=======
->>>>>>> 30ca951... [pageAccueil] wip couleurs changees + jumboTron
-=======
-@charset "UTF-8";
-
->>>>>>> e1f570b... [page Accueil] fin IHM
 /***************************************************
 			NAVBAR
 ****************************************************/
 .auctionNavbar {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> e1f570b... [page Accueil] fin IHM
 	position: sticky;
 	top: -1px;
 	z-index: 100;
 	padding: 0 .5em;
 	border-bottom: 2px solid #B91439;
-<<<<<<< HEAD
 	margin-bottom: 50px;
 	border-radius: 0;
 }
 
-=======
- position: sticky;
- top: 0;
- z-index: 100;
- padding: 0 .5em;
- border-bottom: 2px solid #B91439
-	margin-bottom: 50px;
-	border-radius: 0;
-}
->>>>>>> 30ca951... [pageAccueil] wip couleurs changees + jumboTron
-=======
-	margin-bottom: 50px;
-	border-radius: 0;
-}
-
->>>>>>> e1f570b... [page Accueil] fin IHM
 .navFlex {
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
- 
->>>>>>> 30ca951... [pageAccueil] wip couleurs changees + jumboTron
-=======
-
->>>>>>> e1f570b... [page Accueil] fin IHM
 /***************************************************
 			FOOTER
 ****************************************************/
@@ -63,12 +26,4 @@
 	border-top: 2px solid #B91439;
 	background-color: #f2f2f2;
 	padding: 25px;
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 30ca951... [pageAccueil] wip couleurs changees + jumboTron
-=======
-}
->>>>>>> e1f570b... [page Accueil] fin IHM
