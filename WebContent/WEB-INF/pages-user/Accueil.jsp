@@ -46,8 +46,8 @@ footer {
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	/* isConnected = true; */
-	isConnected = true;
+// 	 isConnected = true; 
+	isConnected = false;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "PC-gamer-de-la-mort";
 	String nomVendeur = "John Doe";

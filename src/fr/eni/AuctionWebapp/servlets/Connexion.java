@@ -1,4 +1,4 @@
-package fr.eni.AuctioWebapp.servlets;
+package fr.eni.AuctionWebapp.servlets;
 
 import java.io.IOException;
 
@@ -10,14 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Accueil
+ * Servlet implementation class Connexion
  */
-@WebServlet("/Accueil")
-public class Accueil extends HttpServlet {
+@WebServlet("/Connexion")
+public class Connexion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/Accueil.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/Connexion.jsp");
 		rd.forward(request, response);
 	}
 

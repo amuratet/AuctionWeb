@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+
 /*Page de Conexion/d'inscription*/
 
 .login-container{
@@ -7,10 +8,12 @@
     margin-bottom: 5%;
 }
 .login-form-1{
-    padding: 5%;
-    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    padding: 1%;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0,153,51,1);
     margin-left: auto;
     margin-right: auto;
+/*     min-width: 65%; */
+/*     min-height: 35rem */
 }
 .login-form-1 h3{
     text-align: center;
@@ -51,4 +54,26 @@
     color: #474747;
     font-weight: 600;
     text-decoration: none;
+}
+
+
+.formGroup{
+	margin-top: 8px;
+}
+
+.btnRegister{
+	background-color: #60de5b!important;
+	width: 25%;
+}
+
+.footerConnexion {
+	background-color: #f2f2f2;
+	padding: 25px;
+	position: fixed;
+	bottom: 0;
+}
+
+@media screen and (max-width: 768px).col-md-6 {
+    flex: 0 0 50%;
+    min-width: 100%;
 }

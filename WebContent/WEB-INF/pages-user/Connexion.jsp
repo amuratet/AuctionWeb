@@ -6,29 +6,22 @@
 <meta charset="ISO-8859-1">
 <title>Page de connexion</title>
 
-<link
-	href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css" rel="stylesheet">
 
-
-<link href="<%=request.getContextPath()%>/css/PageConnexion.css"
-	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/pageConnexion.css" rel="stylesheet">
 
 <style>
-/* Add a gray background color and some padding to the footer */
-footer {
-	background-color: #f2f2f2;
-	padding: 25px;
-}
+
 </style>
 
 </head>
 <body>
+
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	/* isConnected = true; */
-	isConnected = true;
+	isConnected = false;
+	// 	isConnected = true;
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
@@ -91,14 +84,15 @@ footer {
 					</div>
 					<label> <input type="checkbox"> Se souvenir de moi.
 					</label>
-					<div class="form-group">
+					<div class="form-group" style="text-align: center;">
 						<input type="submit" class="btnSubmit" value="Connexion" />
 					</div>
 
-					<div class="form-group">
+					<div class="form-group" style="text-align: center;">
 						<a href="#" class="ForgetPwd">Mot de passe oublier?</a>
 					</div>
 					<div class="form-group">
+						<p>Pas encore membre ?</p>
 						<input type="submit" class="btnRegister" value="Inscription" />
 					</div>
 				</form>
@@ -108,11 +102,10 @@ footer {
 	</div>
 
 	<!-- FOOTER -->
-	<footer class="container-fluid text-center"
+	<footer class="container-fluid text-center footerConnexion"
 		style="border-top: 3px solid #B91439; background-color: #474747;">
 		<p>
-			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar |
-				Lewis|Victor</font>
+			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis | Victor</font>
 		</p>
 	</footer>
 
