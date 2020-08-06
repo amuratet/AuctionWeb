@@ -23,7 +23,6 @@
     cursor: pointer;
 }
 .register-right{
-    background: #f8f9fa;
     border-top-left-radius: 10% 50%;
     border-bottom-left-radius: 10% 50%;
 }
@@ -53,16 +52,16 @@
 }
 .btnRegister{
     float: right;
-    margin-top: 10%;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
-    background: #0062cc;
+    background: #009900;
     color: #fff;
     font-weight: 600;
     width: 65%;
     cursor: pointer;
 }
+
 .register .nav-tabs{
     margin-top: 3%;
     border: none;
@@ -96,7 +95,14 @@
     color: #495057;
 }
 
-.footerConnexion {
+.inputCredit{
+	width: 4rem;
+	cursor: pointer;
+}
+
+
+.footerProfil {
+	background-color: #f2f2f2;
 	padding: 25px;
 	position: fixed;
 	bottom: 0;

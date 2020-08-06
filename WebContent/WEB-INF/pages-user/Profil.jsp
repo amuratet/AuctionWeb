@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,23 +7,27 @@
 <title>Page profil</title>
 
 <!-- Bootstrap core CSS -->
-<link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
+<link
+	href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/ajustementsPerso.css" rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/profil.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/ajustementsPerso.css"
+	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/profil.css"
+	rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
 
 </head>
 <body>
 
-<%
+	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	isConnected = false;
-	// 	isConnected = true;
+	// 	isConnected = false;
+	isConnected = true;
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
@@ -38,7 +42,8 @@
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
+				<li class="nav-item"><a class="nav-link"
+					href="<%=request.getContextPath()%>/Accueil">Accueil<span
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
 				<%
@@ -54,14 +59,15 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">Mon
-						profil</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=request.getContextPath()%>/Profil">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Se
 						déconnecter</a></li>
 				<%
 					} else {
 				%>
-                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
 				<%
 					}
 				%>
@@ -79,64 +85,65 @@
 						<div class="row register-form">
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" name="pseudo" class="form-control" placeholder="Pseudo *"
-										value="" />
+									<input type="text" name="pseudo" class="form-control"
+										placeholder="Pseudo *" value="" />
 								</div>
 								<div class="form-group">
-									<input type="text" name="nom" class="form-control" placeholder="Nom *"
-										value="" />
+									<input type="text" name="nom" class="form-control"
+										placeholder="Nom *" value="" />
 								</div>
 								<div class="form-group">
-									<input type="text" name="prenom" class="form-control" placeholder="Prenom *"
-										value="" />
+									<input type="text" name="prenom" class="form-control"
+										placeholder="Prenom *" value="" />
+								</div>
+
+								<div class="form-group">
+									<input type="password" name="mdp" class="form-control"
+										placeholder="Mot de passe actuel *" value="" />
+								</div>
+								<div class="form-group">
+									<input type="password" name="newmdp" class="form-control"
+										placeholder="Nouveau mot de passe *" value="" />
+								</div>
+								<div class="form-group">
+									<input type="password" name="newconfirmMdp"
+										class="form-control"
+										placeholder="Confirmer le nouveau mot de passe *" value="" />
 								</div>
 								
-								<div class="form-group">
-									<input type="password" name="mdp" class="form-control" placeholder="Mot de passe actuel *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="password" name="newmdp" class="form-control" placeholder="Nouveau mot de passe *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="password" name="newconfirmMdp" class="form-control" placeholder="Confirmer le nouveau mot de passe *" value="" />
-								</div>
-								<div class="form-group">
-<!-- 									<div class="maxl"> -->
-<!-- 										<label class="radio inline"> <input type="radio" name="genderH" value="male" checked> <span> -->
-<!-- 												Homme </span> -->
-<!-- 										</label> <label class="radio inline"> <input type="radio" name="genderF" value="female"> <span>Femme </span> -->
-<!-- 										</label> -->
-<!-- 									</div> -->
-								</div>
+									Credit : <input class="inputCredit" type="text" name="credit" class="form-control" value="10000" readonly  />
+								
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="email" name="email" class="form-control" placeholder="Email *"
-										value="" />
+									<input type="email" name="email" class="form-control"
+										placeholder="Email *" value="" />
 								</div>
 								<div class="form-group">
 									<input type="tel" name="phone" class="form-control"
-										placeholder="Téléphone *" pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"
-										value="" required/>
+										placeholder="Téléphone *"
+										pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"
+										value="" required />
 								</div>
 								<div class="form-group">
 									<input type="text" name="cdp" class="form-control"
-										placeholder="Code postal *" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"  value="" required/>
+										placeholder="Code postal *"
+										pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" value="" required />
 								</div>
 								<div class="form-group">
-									<input type="text" name="vile" class="form-control" placeholder="Ville *"
-										value="" />
+									<input type="text" name="vile" class="form-control"
+										placeholder="Ville *" value="" />
 								</div>
 								<div class="form-group">
-									<input type="text" name="rue" class="form-control" placeholder="Rue *"
-										value="" />
+									<input type="text" name="rue" class="form-control"
+										placeholder="Rue *" value="" />
 								</div>
-								
-								<input type="submit" class="btnRegister" value="Supprimer mon compte" />
-								
-								<input type="submit" class="btnRegister" value="Enregistrer" />
-								
 							</div>
+						</div>
+						<div class="col-md-9" style="margin: 0 auto; display: flex;">
+							<input type="submit" class="btnRegister" value="Enregistrer" />
+							<input type="submit" class="btnRegister"
+								value="Supprimer mon compte" style="background-color: #b30000;" />
 						</div>
 					</div>
 
@@ -147,8 +154,8 @@
 	</div>
 
 	<!-- FOOTER -->
-	<footer class="container-fluid text-center footerConnexion"
-		style="border-top: 3px solid #B91439; background-color: #474747;">
+	<footer class="container-fluid text-center footerProfil"
+		style="border-top: 3px solid #b30000; background-color: #474747;">
 		<p>
 			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis
 				| Victor</font>
