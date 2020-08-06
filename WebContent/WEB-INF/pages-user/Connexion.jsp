@@ -36,7 +36,7 @@
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Accueil<span
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
 				<%
@@ -59,9 +59,8 @@
 				<%
 					} else {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">S'inscrire</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se
-						connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
+               
 				<%
 					}
 				%>
