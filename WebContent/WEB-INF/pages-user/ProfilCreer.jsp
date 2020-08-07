@@ -61,7 +61,7 @@
 					if (isConnected) {
 				%>
 				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/Profil">Mon profil</a></li>
+					href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Se
 						déconnecter</a></li>
 				<%
