@@ -51,8 +51,6 @@ INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,vill
     VALUES('TheBoss', 'Bonaparte', 'Napoléon', 'nbonaparte@gmail.com', '0608080808', '80, rue des Dieux', '75001', 'Paris', 'password', 10000, 0);
 
 
---(SELECT no_categorie FROM CATEGORIES WHERE libelle = '')
-
 
 INSERT INTO ARTICLES_VENDUS (nom_article, description ,date_debut_encheres ,date_fin_encheres ,prix_initial ,prix_vente ,no_utilisateur ,no_categorie)
     VALUES ('ASUS G11CD',
