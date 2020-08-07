@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Page profil modifier</title>
 
 <!-- Bootstrap core CSS -->
@@ -37,7 +37,7 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#"><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
@@ -45,7 +45,7 @@
 				<li class="nav-item"><a class="nav-link"
 					href="<%=request.getContextPath()%>/Accueil">Accueil<span
 						class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">EnchÃ¨res</a></li>
 				<%
 					if (isConnected) {
 				%>
@@ -61,7 +61,7 @@
 				%>
 				<li class="nav-item"><a class="nav-link"
 					href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se déconnecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se dÃ©connecter</a></li>
 				<%
 					} else {
 				%>
@@ -120,7 +120,7 @@
 								</div>
 								<div class="form-group">
 									<input type="tel" name="phone" class="form-control"
-										placeholder="Téléphone *"
+										placeholder="TÃ©lÃ©phone *"
 										pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"
 										value="" required />
 								</div>
@@ -156,7 +156,7 @@
 	<footer class="container-fluid text-center footerProfil"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
 		<p>
-			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis
+			<font color="#FFFFFF">AuctionWebTeam Â©ENI-2020 Amilcar | Lewis
 				| Victor</font>
 		</p>
 	</footer>

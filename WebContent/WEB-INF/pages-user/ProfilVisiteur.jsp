@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -75,7 +76,6 @@
 			</ul>
 		</div>
 	</nav>
-	
 	<div class="container containerProfil">
 		<h3 class="register-heading h3Profil">Mon profil</h3>
 
@@ -88,7 +88,7 @@
 							<label>Pseudo :</label>
 						</div>
 						<div class="col-md-6">
-							<p>GuYzMoGwAi</p>
+							<p>CouCouClient</p>
 						</div>
 					</div>
 					<div class="row">
@@ -96,7 +96,7 @@
 							<label>Nom :</label>
 						</div>
 						<div class="col-md-6">
-							<p>Blaud</p>
+							<p>XXX</p>
 						</div>
 					</div>
 					<div class="row">
@@ -104,7 +104,7 @@
 							<label>Prénom :</label>
 						</div>
 						<div class="col-md-6">
-							<p>Lewis</p>
+							<p>XXX</p>
 						</div>
 					</div>
 					<div class="row">
@@ -112,7 +112,7 @@
 							<label>Email :</label>
 						</div>
 						<div class="col-md-6">
-							<p>lewisB@gmail.com</p>
+							<p>XXX</p>
 						</div>
 					</div>
 					<div class="row">
@@ -120,7 +120,7 @@
 							<label>Téléphone</label>
 						</div>
 						<div class="col-md-6">
-							<p>06.08.07.82.97</p>
+							<p>XXX</p>
 						</div>
 					</div>
 
@@ -129,7 +129,7 @@
 							<label>Rue :</label>
 						</div>
 						<div class="col-md-6">
-							<p>Rue de la paix</p>
+							<p>XXX</p>
 						</div>
 					</div>
 					<div class="row">
@@ -137,7 +137,7 @@
 							<label>Ville :</label>
 						</div>
 						<div class="col-md-6">
-							<p>Paris</p>
+							<p>XXX</p>
 						</div>
 					</div>
 					<div class="row">
@@ -145,19 +145,14 @@
 							<label>Code postal :</label>
 						</div>
 						<div class="col-md-6">
-							<p>75008</p>
+							<p>XXX</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-				<div class="col-md-9" style="margin: 0 auto; display: flex;">
-					<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier">
-					<input class="btnRegister" type="submit" value="Modifier"/>
-					</a>
-				</div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<footer class="container-fluid text-center footerProfil"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
