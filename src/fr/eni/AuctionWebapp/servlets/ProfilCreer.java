@@ -17,14 +17,21 @@ import fr.eni.AuctionWebapp.BO.Article;
 import fr.eni.AuctionWebapp.BO.Categorie;
 
 /**
+<<<<<<< HEAD:src/fr/eni/AuctionWebapp/servlets/Accueil.java
  * Servlet de la page Accueil
  * @author alk
+=======
+ * Servlet implementation class ProfilCreer
+>>>>>>> pageProfil:src/fr/eni/AuctionWebapp/servlets/ProfilCreer.java
  */
-@WebServlet("/Accueil")
-public class Accueil extends HttpServlet {
+@WebServlet("/ProfilCreer")
+public class ProfilCreer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+ 
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+<<<<<<< HEAD:src/fr/eni/AuctionWebapp/servlets/Accueil.java
 		String boutonFiltre = "Filtrer";
 		List<Article> articles = new ArrayList<Article>();
 		List<Categorie> categories = new ArrayList<Categorie>();
@@ -65,8 +72,12 @@ public class Accueil extends HttpServlet {
 		request.setAttribute("categories", categories);
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/Accueil.jsp");
+=======
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/ProfilCreer.jsp");
+>>>>>>> pageProfil:src/fr/eni/AuctionWebapp/servlets/ProfilCreer.java
 		rd.forward(request, response);
 	}
+
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
