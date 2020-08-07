@@ -74,11 +74,11 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Enchères</a></li>
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">Vendre un article</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Vendre un article</a></li>
 				<%
 					}
 				%>
@@ -87,8 +87,8 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se déconnecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="">Se déconnecter</a></li>
 				<%
 					} else {
 				%>
