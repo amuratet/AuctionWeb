@@ -31,7 +31,7 @@
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	/* isConnected = true; */
+	isConnected = false;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "Lampe à pétrole bucolique";
 	String nomVendeur = "Avrell Dalton";
@@ -87,7 +87,7 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="">Se déconnecter</a></li>
 				<%
 					} else {
