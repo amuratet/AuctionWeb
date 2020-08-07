@@ -80,7 +80,7 @@ footer {
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ListeEncheres">Enchères</a></li>
 				<%
 					if (isConnected) {
 				%>
