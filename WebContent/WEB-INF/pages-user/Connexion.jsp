@@ -11,6 +11,9 @@
 
 <link href="<%=request.getContextPath()%>/css/pageConnexion.css" rel="stylesheet">
 
+<link href="<%=request.getContextPath()%>/css/profilCreer.css"
+	rel="stylesheet">
+
 <style>
 
 </style>
@@ -93,7 +96,7 @@
 					</div>
 					<div class="form-group">
 						<p>Pas encore membre ?</p>
-						<input type="submit" class="btnRegister" value="Inscription" />
+						<a class="btnA" href="<%=request.getContextPath()%>/Inscription"></a><input type="submit" class="btnRegister" value="Inscription" />
 					</div>
 				</form>
 			</div>

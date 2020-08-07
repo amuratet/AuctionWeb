@@ -31,7 +31,7 @@
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	isConnected = false;
+	isConnected = true;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "Lampe à pétrole bucolique";
 	String nomVendeur = "Avrell Dalton";
