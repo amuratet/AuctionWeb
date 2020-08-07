@@ -31,12 +31,7 @@
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-<<<<<<< HEAD
-	/* isConnected = true; */
-=======
-// 	 isConnected = true; 
-	isConnected = false;
->>>>>>> PageConnexion
+	isConnected = true;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "Lampe à pétrole bucolique";
 	String nomVendeur = "Avrell Dalton";
