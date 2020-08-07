@@ -78,7 +78,7 @@ public class ArticleDaoImpl implements ArticleDao {
 		ResultSet res = null;
 		
 		try (Connection cnx = FournisseurConnexion.obtenirConnexion()) {
-			req = cnx.prepareStatement(SELECT_ALL);
+			req = cnx.prepareStatement(SELECT_ALL_BY_CAT);
 			req.setString(1, categorie);
 			res = req.executeQuery();
 			

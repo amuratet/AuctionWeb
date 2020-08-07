@@ -100,7 +100,7 @@
 			</ul>
 		</div>
 	</nav>
-	<!-- On s'assure que tout s'est bien passé -->
+	<!-- On s'assure que tout s'est bien passé sinon alert -->
 	<%
 		if (request.getAttribute("erreur") != null) {
 	%>
@@ -111,22 +111,21 @@
 	<!-- FILTRES -->
 	<div class="auctionFiltres">
 		<p class="titreFiltrer">Filtrer</p>
-		
-		<form action="<%=request.getContextPath()%>/Accueil" method="post">
-			<select name="categorie" class="filtresSelect">
+
+		<form action="<%=request.getContextPath()%>/Accueil" method="get">
+			<select name="filtreCategorie" class="filtresSelect">
 				<option value="">Catégories</option>
 
 				<c:forEach var="categorie" items="${ categories }">
 					<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
 				</c:forEach>
 
-			</select>
-			<select name="date" class="filtresSelect">
+			</select> <select name="date" class="filtresSelect">
 				<option value="">Date</option>
 				<option value="dateAsc">Croissant</option>
 				<option value="dateDesc">Décroissant</option>
-			</select>
-			<button type="submit">Valider</button>
+			</select> 
+			<button type="submit">${ boutonFiltre }</button>
 		</form>
 
 	</div>

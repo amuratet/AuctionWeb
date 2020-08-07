@@ -29,7 +29,7 @@ public class ArticleManager {
 	}
 	
 	public List<Article> selectAll(String categorie) throws DALException, BLLException {
-		return articleDao.selectAll();
+		return articleDao.selectAll(categorie);
 	}
 	
 	public void insertArticle(Article article) throws DALException, BLLException {

@@ -25,16 +25,34 @@ public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String boutonFiltre = "Filtrer";
 		List<Article> articles = new ArrayList<Article>();
 		List<Categorie> categories = new ArrayList<Categorie>();
 		
-		try {
-			ArticleManager articleManager = new ArticleManager();
-			articles = articleManager.selectAll();
-		} catch (Exception e) {
-			e.printStackTrace();
-			request.setAttribute("erreur", "Échec dans la récupérations des articles");
+		String filtreCategorie = request.getParameter("filtreCategorie");
+		
+		if (filtreCategorie != null && !filtreCategorie.isEmpty()) {
+			boutonFiltre = "Annuler";
+			try {
+				ArticleManager articleManager = new ArticleManager();
+				articles = articleManager.selectAll(filtreCategorie);
+			} catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("erreur", "Échec dans le filtrage des articles");
+			}
+			
+		} else {
+			boutonFiltre = "Filtrer";
+			try {
+				ArticleManager articleManager = new ArticleManager();
+				articles = articleManager.selectAll();
+			} catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("erreur", "Échec dans la récupérations des articles");
+			}
 		}
+		
+		request.setAttribute("boutonFiltre", boutonFiltre);
 		request.setAttribute("articles", articles);
 		
 		try {
