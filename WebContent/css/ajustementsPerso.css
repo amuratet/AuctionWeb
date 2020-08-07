@@ -109,6 +109,34 @@
 	padding: .5em;
 	border-radius: 5%;
 }
+.auctionFiltres {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 1em;
+}
+.auctionFiltres p {
+	font-size: 1.5em;
+	margin-left: 1em;
+}
+.auctionFiltres form {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.filtresSelect, .auctionFiltres button {
+	width: 10em;
+	color: #007bff;
+	background-color: #fff;
+	padding: .5rem;
+	border: 1px solid #dee2e6;
+	border-radius: 0.25rem;
+	margin-left: 1em;
+	margin-left: 1em;
+}
+
 /***************************************************
 			ARTICLES
 ****************************************************/
@@ -126,6 +154,16 @@
 	border-bottom: 1px solid #fff;
 	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3));
 	border-radius: .3em .3em 0 0;
+}
+.catArticle {
+	display: inline-block;
+	margin: auto;
+	font-weight: bold;
+	margin-left: 1em;
+	padding: .2em .8em .1em .8em;
+	border-radius: .2em;
+	color: #2134ae;
+	background-color: #cbe5ff;
 }
 .articleDescription {
 	padding: .5em;

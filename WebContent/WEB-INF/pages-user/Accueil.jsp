@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -31,7 +32,6 @@
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
 	/* isConnected = true; */
-	isConnected = true;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "Lampe à pétrole bucolique";
 	String nomVendeur = "Avrell Dalton";
@@ -43,35 +43,36 @@
 	Integer maxPaginationsDisplay = 6;
 	%>
 
+
 	<div class="jumbotron auctionEnteteAccueil" style="margin-bottom: 0;">
 		<div class="container text-center">
 			<h1 class="jumboH1">
-				LES OBJETS SONT NOS AMIS
-				<br><span>SITE D'ENCHERES AUTO-GEREES</span>
-			</h1><br />
-			<img src="<%=request.getContextPath()%>/images/auctionHammer.png" width="280em" class="jumboMarteau">
+				LES OBJETS SONT NOS AMIS <br> <span>SITE D'ENCHERES AUTO-GEREES</span>
+			</h1>
+			<br /> <img src="<%=request.getContextPath()%>/images/auctionHammer.png" width="280em"
+				class="jumboMarteau">
 			<div class="jumboPictos">
-				<img src="<%=request.getContextPath()%>/pictos/partner1.png" alt="picto1" />
-				<img src="<%=request.getContextPath()%>/pictos/cube.png" alt="picto2" />
-				<img src="<%=request.getContextPath()%>/pictos/share1.png" alt="picto3" />
-				<img src="<%=request.getContextPath()%>/pictos/share.png" alt="picto4" />
-				<img src="<%=request.getContextPath()%>/pictos/arrow.png" alt="picto5" />
+				<img src="<%=request.getContextPath()%>/pictos/partner1.png" alt="picto1" /> <img
+					src="<%=request.getContextPath()%>/pictos/cube.png" alt="picto2" /> <img
+					src="<%=request.getContextPath()%>/pictos/share1.png" alt="picto3" /> <img
+					src="<%=request.getContextPath()%>/pictos/share.png" alt="picto4" /> <img
+					src="<%=request.getContextPath()%>/pictos/arrow.png" alt="picto5" />
 			</div>
 		</div>
 	</div>
 
-
+	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
 		<a class="navbar-brand" href="#">AuctionWebapp</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#"><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
 				<%
@@ -91,66 +92,89 @@
 				<%
 					} else {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">S'inscrire</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
 				<%
 					}
 				%>
 			</ul>
 		</div>
 	</nav>
+	<!-- On s'assure que tout s'est bien passé sinon alert -->
+	<%
+		if (request.getAttribute("erreur") != null) {
+	%>
+	<div class="alert alert-danger" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		}
+	%>
+	<!-- FILTRES -->
+	<div class="auctionFiltres">
+		<p class="titreFiltrer">Filtrer</p>
 
-	<!-- Liste des produits -->
+		<form action="<%=request.getContextPath()%>/Accueil" method="get">
+			<select name="filtreCategorie" class="filtresSelect">
+				<option value="">Catégories</option>
+
+				<c:forEach var="categorie" items="${ categories }">
+					<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
+				</c:forEach>
+
+			</select> <select name="date" class="filtresSelect">
+				<option value="">Date</option>
+				<option value="dateAsc">Croissant</option>
+				<option value="dateDesc">Décroissant</option>
+			</select> 
+			<button type="submit">${ boutonFiltre }</button>
+		</form>
+
+	</div>
+
+	<!-- LISTE DES ARTICLES -->
 	<div class="container">
 		<div class="row">
 
-			<%
-				for (int i = 1; i <= 10; i++) {
-			%>
-			<div class="col-sm-6 articleDisplay">
-				<div class="card articleContent">
-					<div class="articleEntete"><%=titreArticle%></div>
-					<div class="unArticle">
-						<img src="<%=request.getContextPath()%>/images/petroLampe3.jpeg" class="img-responsive"
-							alt="Image">
-						<p class="articleDescription">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus
-							tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices
-							diam. <br> <a href="#" class="nomVendeur"> - <%=nomVendeur%> -
-							</a>
-						</p>
-					</div>
-					<div class="articlePied">
-						Fin des enchères :
-						<%=finEnchere%></div>
-				</div>
-			</div>
 
-			<%
-				}
-			%>
+
+			<c:forEach var="article" items="${ articles }">
+				<div class="col-sm-6 articleDisplay">
+					<div class="card articleContent">
+						<div class="articleEntete">${ article.nom }</div>
+						<div class="unArticle">
+							<img src="<%=request.getContextPath()%>/images/${ article.catLibelle }.jpg"
+								class="img-responsive" alt="Image">
+							<p class="articleDescription">
+								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
+								<a href="#" class="nomVendeur"> - Avrell Dalton - </a>
+							</p>
+						</div>
+						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
+					</div>
+				</div>
+			</c:forEach>
+
 		</div>
 	</div>
-		<div aria-label="Page navigation example">
-			<ul class="pagination articlesPagination">
-				<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
-				<%
-					for (int i = 1 ; i <= maxPaginationsDisplay && (currentPagination < nbArticles) ; i++) {
-						currentPagination += articlesParPage;
-						if (i == maxPaginationsDisplay) {
-						%>
-							<li class="page-item"><a class="page-link" href="#"> ... </a></li>
-						<%
-						} else {
-						%>
-							<li class="page-item"><a class="page-link" href="#"><%= i %></a></li>
-						<%
-						}
-					}
-				%>
-				<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
-			</ul>
-		</div>
+	<div aria-label="Page navigation example">
+		<ul class="pagination articlesPagination">
+			<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
+			<%
+				for (int i = 1; i <= maxPaginationsDisplay && (currentPagination < nbArticles); i++) {
+				currentPagination += articlesParPage;
+				if (i == maxPaginationsDisplay) {
+			%>
+			<li class="page-item"><a class="page-link" href="#"> ... </a></li>
+			<%
+				} else {
+			%>
+			<li class="page-item"><a class="page-link" href="#"><%=i%></a></li>
+			<%
+				}
+			}
+			%>
+			<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+		</ul>
+	</div>
 	<br>
 
 
