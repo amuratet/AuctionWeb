@@ -33,7 +33,7 @@
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
-		<a class="navbar-brand" href="#">AuctionWebapp</a>
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil">AuctionWebapp</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarNav" aria-controls="navbarNav"
 			aria-expanded="false" aria-label="Toggle navigation">

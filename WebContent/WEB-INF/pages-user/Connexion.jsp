@@ -32,7 +32,7 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href=""><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
