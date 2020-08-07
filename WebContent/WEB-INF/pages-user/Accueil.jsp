@@ -68,11 +68,11 @@
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="#"><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item"><a class="nav-link" href="#">Enchères</a></li>
 				<%
@@ -92,8 +92,8 @@
 				<%
 					} else {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">S'inscrire</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
 				<%
 					}
 				%>
