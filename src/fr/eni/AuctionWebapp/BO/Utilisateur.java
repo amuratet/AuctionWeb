@@ -14,6 +14,7 @@ public class Utilisateur {
 	private String nom;
 	private String prenom;
 	private String email;
+	private String telephone;
 	private String rue;
 	private String codePostal;
 	private String ville;
@@ -25,14 +26,14 @@ public class Utilisateur {
 	//	=======================================================
 	//					CONSTRUCTEURS
 	//	=======================================================
-	public Utilisateur(int id, String pseudo, String nom, String prenom, String email, String rue, String codePostal,
+	public Utilisateur(int id, String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
 			String ville, String mdp, int credit, Boolean admin) {
-		super();
 		this.id = id;
 		this.pseudo = pseudo;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
+		this.telephone = telephone;
 		this.rue = rue;
 		this.codePostal = codePostal;
 		this.ville = ville;
@@ -94,6 +95,15 @@ public class Utilisateur {
 		this.email = email;
 	}
 	
+	public String getTelephone() {
+		return telephone;
+	}
+
+
+	public void setTelephone(String telephone) {
+		this.telephone = telephone;
+	}
+
 	
 	public String getRue() {
 		return rue;
@@ -154,10 +164,21 @@ public class Utilisateur {
 		this.admin = admin;
 	}
 
+
 	//	=======================================================
 	//					MÉTHODES PUBLIQUES
 	//	=======================================================
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		sb.append("utilisateurId : " + getId());
+		sb.append("\nPseudo : " + getPseudo());
+		sb.append("\nadmin : " + (getAdmin() ? "Oui" : "non"));
+		
+		return sb.toString();
+	}
 
+	
 	//	=======================================================
 	//					MÉTHODES PRIVÉES
 	//	=======================================================

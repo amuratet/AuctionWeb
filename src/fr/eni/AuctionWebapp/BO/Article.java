@@ -28,13 +28,14 @@ public class Article {
 	private String photo;
 	private String catLibelle;
 	private String catNomFr;
+	private int idVendeur;
 	private String pseudoVendeur;
 
 	// =======================================================
 	// 					CONSTRUCTEURS
 	// =======================================================
 	public Article(int id, String nom, String description, Date dateDebut, Date dateFin, int prixInitial, int prixVente,
-			int idUtilisateur, int idCategorie, String photo, String catLibelle, String catNomFr, String nomVendeur) {
+			int idUtilisateur, int idCategorie, String photo, String catLibelle, String catNomFr, int idVendeur, String pseudoVendeur) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
@@ -47,7 +48,8 @@ public class Article {
 		this.photo = photo;
 		this.catLibelle = catLibelle;
 		this.catNomFr = catNomFr;
-		this.pseudoVendeur = nomVendeur;
+		this.idVendeur = idVendeur;
+		this.pseudoVendeur = pseudoVendeur;
 	}
 
 	// =======================================================
@@ -158,10 +160,17 @@ public class Article {
 		this.pseudoVendeur = pseudoVendeur;
 	}
 
+	public int getIdVendeur() {
+		return idVendeur;
+	}
+
+	public void setIdVendeur(int idVendeur) {
+		this.idVendeur = idVendeur;
+	}
+	
 	// =======================================================
 	// 					MÉTHODES PUBLIQUES
 	// =======================================================
-	
 	@Override
 	public String toString() {
 		StringBuffer sb = new StringBuffer();
@@ -173,6 +182,7 @@ public class Article {
 		sb.append(" --- Prix initial : " + getPrixInitial() != null ? getPrixInitial() : "0");
 		sb.append(" --- Prix vente : " + getPrixVente() != null ? getPrixVente() : "0");
 		sb.append(" --- Catégorie : " + getCatNomFr());
+		sb.append(" --- idVendeur : " + getIdVendeur());
 		sb.append(" --- Pseudo du vendeur : " + getPseudoVendeur());
 		return sb.toString();
 	}
