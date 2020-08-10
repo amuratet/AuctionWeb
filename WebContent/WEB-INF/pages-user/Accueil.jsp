@@ -145,7 +145,7 @@
 								class="img-responsive" alt="Image">
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="#" class="nomVendeur"> - Avrell Dalton - </a>
+								<a href="" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
 							</p>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>

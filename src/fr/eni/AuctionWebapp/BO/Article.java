@@ -1,9 +1,11 @@
 package fr.eni.AuctionWebapp.BO;
 
 import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
+/**
+ * Classe pour définir l'objet Article (en DB : ARTICLES_VENDUS)
+ * @author alk
+ */
 public class Article {
 	
 	//	=======================================================
@@ -26,12 +28,13 @@ public class Article {
 	private String photo;
 	private String catLibelle;
 	private String catNomFr;
+	private String pseudoVendeur;
 
 	// =======================================================
 	// 					CONSTRUCTEURS
 	// =======================================================
 	public Article(int id, String nom, String description, Date dateDebut, Date dateFin, int prixInitial, int prixVente,
-			int idUtilisateur, int idCategorie, String photo, String catLibelle, String catNomFr) {
+			int idUtilisateur, int idCategorie, String photo, String catLibelle, String catNomFr, String nomVendeur) {
 		this.id = id;
 		this.nom = nom;
 		this.description = description;
@@ -44,6 +47,7 @@ public class Article {
 		this.photo = photo;
 		this.catLibelle = catLibelle;
 		this.catNomFr = catNomFr;
+		this.pseudoVendeur = nomVendeur;
 	}
 
 	// =======================================================
@@ -144,6 +148,15 @@ public class Article {
 	public void setCatNomFr(String catNomFr) {
 		this.catNomFr = catNomFr;
 	}
+	
+
+	public String getPseudoVendeur() {
+		return pseudoVendeur;
+	}
+
+	public void setPseudoVendeur(String pseudoVendeur) {
+		this.pseudoVendeur = pseudoVendeur;
+	}
 
 	// =======================================================
 	// 					MÉTHODES PUBLIQUES
@@ -160,6 +173,7 @@ public class Article {
 		sb.append(" --- Prix initial : " + getPrixInitial() != null ? getPrixInitial() : "0");
 		sb.append(" --- Prix vente : " + getPrixVente() != null ? getPrixVente() : "0");
 		sb.append(" --- Catégorie : " + getCatNomFr());
+		sb.append(" --- Pseudo du vendeur : " + getPseudoVendeur());
 		return sb.toString();
 	}
 	

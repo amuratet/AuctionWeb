@@ -18,10 +18,10 @@ public class ArticleDaoImpl implements ArticleDao {
 	//					CONSTANTES
 	//	=======================================================
 	private static final String SELECT_ALL = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_utilisateur,a.no_categorie,a.photo,"
-			+ "c.libelle, c.nomFr FROM ARTICLES_VENDUS a INNER JOIN CATEGORIES c ON c.no_categorie = a.no_categorie;";
+			+ "c.libelle,c.nomFr,u.pseudo FROM ARTICLES_VENDUS a INNER JOIN CATEGORIES c ON c.no_categorie = a.no_categorie INNER JOIN UTILISATEURS u ON u.no_utilisateur = a.no_utilisateur;";
 	
 	private static final String SELECT_ALL_BY_CAT = "SELECT a.no_article,a.nom_article,a.description,a.date_debut_encheres,a.date_fin_encheres,a.prix_initial,a.prix_vente,a.no_utilisateur,a.no_categorie,a.photo,"
-											+ "c.libelle,c.nomFr FROM ARTICLES_VENDUS a INNER JOIN CATEGORIES c ON c.no_categorie = a.no_categorie WHERE c.libelle = ?;";
+											+ "c.libelle,c.nomFr,u.pseudo FROM ARTICLES_VENDUS a INNER JOIN CATEGORIES c ON c.no_categorie = a.no_categorie INNER JOIN UTILISATEURS u ON u.no_utilisateur = a.no_utilisateur WHERE c.libelle = ?;";
 
 	//	=======================================================
 	//					MÉTHODES PUBLIQUES
@@ -51,7 +51,8 @@ public class ArticleDaoImpl implements ArticleDao {
 						res.getInt("no_categorie"),
 						res.getString("photo"),
 						res.getString("libelle"),
-						res.getString("nomFr")
+						res.getString("nomFr"),
+						res.getString("pseudo")
 						);
 				articles.add(article);
 			}
@@ -97,7 +98,8 @@ public class ArticleDaoImpl implements ArticleDao {
 							res.getInt("no_categorie"),
 							res.getString("photo"),
 							res.getString("libelle"),
-							res.getString("nomFr")
+							res.getString("nomFr"),
+							res.getString("pseudo")
 						);
 				articles.add(article);
 			}
