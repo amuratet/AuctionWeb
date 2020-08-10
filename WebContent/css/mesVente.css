@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+/***************************************************
+			FONTS
+****************************************************/
+
+.mainContainer {
+	background: linear-gradient(to bottom right, rgba(243, 196, 124, 0.5),
+		rgba(44, 25, 31, 0.5)), url("../vendor/Patterns/circles-light.png");
+	font-family: "Linux Biolinum G", "Fira Code", sans-serif;
+	height: 100%;
+	width: 100% !important;
+	padding: 2em 1em;
+}
+
+#upload {
+	opacity: 0;
+}
+
+#upload-label {
+	position: absolute;
+	top: 50%;
+	left: 1rem;
+	transform: translateY(-50%);
+}
+
+.image-area {
+	border: 2px dashed #1e7e34;
+	padding: 10rem;
+	position: relative;
+}
+
+.image-area::before {
+	content: 'Uploaded image result';
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: 0.8rem;
+	z-index: 1;
+}
+
+.image-area img {
+	z-index: 2;
+	position: relative;
+}
+
+.footerProfil {
+	background-color: #f2f2f2;
+	padding: 25px;
+	position: fixed;
+	bottom: 0;
+}

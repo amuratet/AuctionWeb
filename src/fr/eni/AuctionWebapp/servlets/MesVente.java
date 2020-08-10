@@ -21,9 +21,7 @@ public class MesVente extends HttpServlet {
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/MesVente.jsp");
 		rd.forward(request, response);	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}
