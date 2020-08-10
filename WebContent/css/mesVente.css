@@ -13,6 +13,34 @@
 	padding: 2em 1em;
 }
 
+.auctionFiltres {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 1em;
+}
+.auctionFiltres p {
+	font-size: 1.5em;
+	margin-left: 1em;
+}
+.auctionFiltres form {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.filtresSelect, .auctionFiltres button {
+	width: 10em;
+	color: #007bff;
+	background-color: #fff;
+	padding: .5rem;
+	border: 1px solid #dee2e6;
+	border-radius: 0.25rem;
+	margin-left: 1em;
+	margin-left: 1em;
+}
+
 #upload {
 	opacity: 0;
 }
@@ -51,6 +79,4 @@
 .footerProfil {
 	background-color: #f2f2f2;
 	padding: 25px;
-	position: fixed;
-	bottom: 0;
 }

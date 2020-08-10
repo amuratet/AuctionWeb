@@ -91,19 +91,25 @@
 					<textarea class="form-control" id="exampleFormControlTextarea1"
 						rows="3"></textarea>
 				</div>
-				<form action="<%=request.getContextPath()%>/Accueil" method="get">
-					<select name="filtreCategorie" class="filtresSelect">
-						<option value="">Catégories</option>
+				<div class="auctionFiltres">
+					<p class="titreFiltrer">Filtrer</p>
 
-						<c:forEach var="categorie" items="${ categories }">
-							<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
-						</c:forEach>
-					</select>
-				</form>
+					<form action="<%=request.getContextPath()%>/Accueil" method="get">
+						<select name="filtreCategorie" class="filtresSelect">
+							<option value="">Catégories</option>
+
+							<c:forEach var="categorie" items="${ categories }">
+								<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
+							</c:forEach>
+						</select>
+						<button type="submit">${ boutonFiltre }</button>
+					</form>
+
+				</div>
 				<input id="upload" type="file" onchange="readURL(this);"
 					class="form-control border-0" style="background-color: #60de5b">
 				<label id="upload-label" for="upload"
-					class="font-weight-light text-muted"></label> <label for="upload"
+					class="font-weight-light text-muted"> </label> <label for="upload"
 					class="btn btn-light m-0 rounded-pill px-4"> <i
 					class="fa fa-cloud-upload mr-2 text-muted"></i><small
 					class="text-uppercase font-weight-bold text-muted">Télécharger
@@ -136,6 +142,8 @@
 					type="text" name="codePostal" class="form-control" placeholder=""
 					value="" />
 			</div>
+			<input type="submit" class="btnRegister" value="Enregistrer" /> <input
+				type="submit" class="btnRegister" value="Annuler" />
 		</div>
 	</div>
 

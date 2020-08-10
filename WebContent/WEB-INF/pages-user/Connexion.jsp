@@ -93,7 +93,7 @@
 					</div>
 					<div class="form-group">
 						<p>Pas encore membre ?</p>
-						<input type="submit" class="btnRegister" value="Inscription" />
+						<a class="btnRegister" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a>
 					</div>
 				</form>
 			</div>
