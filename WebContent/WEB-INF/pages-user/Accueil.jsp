@@ -133,9 +133,6 @@
 	<!-- LISTE DES ARTICLES -->
 	<div class="container">
 		<div class="row">
-
-
-
 			<c:forEach var="article" items="${ articles }">
 				<div class="col-sm-6 articleDisplay">
 					<div class="card articleContent">
@@ -145,7 +142,7 @@
 								class="img-responsive" alt="Image">
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="#" class="nomVendeur"> - Avrell Dalton - </a>
+								<a href="<%=request.getContextPath()%>/ProfilCreer?vendeurId=${article.idVendeur}" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
 							</p>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
