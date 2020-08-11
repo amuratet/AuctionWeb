@@ -29,18 +29,15 @@
 <body>
 
 	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	isConnected = true;
-	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
-	String titreArticle = "Lampe à pétrole bucolique";
-	String nomVendeur = "Avrell Dalton";
-	String finEnchere = "10/08/2020";
-	Integer nbArticles = 35; /* request.get...() */
-	Integer articlesParPage = 10;
-	Integer currentPagination = 0; /* à faire mouvoir */
-	Integer nbPages = nbArticles / articlesParPage;
-	Integer maxPaginationsDisplay = 6;
+// 		Boolean isConnected = session.getAttribute("isConnected") != "0";
+		Boolean isConnected = true;
+		String userId = (String) session.getAttribute("userId");
+		
+		Integer nbArticles = 35; /* request.get...() */
+		Integer articlesParPage = 10;
+		Integer currentPagination = 0; /* à faire mouvoir */
+		Integer nbPages = nbArticles / articlesParPage;
+		Integer maxPaginationsDisplay = 6;
 	%>
 
 
@@ -87,7 +84,7 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer?compte=<%= userId %>">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Se déconnecter</a></li>
 				<%
 					} else {

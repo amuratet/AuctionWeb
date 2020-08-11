@@ -32,6 +32,10 @@ public class UtilisateurManager {
 		return utilisateurDao.selectById(id);
 	}
 	
+	public Utilisateur selectByMailForCnx(String email) throws DALException {
+		return utilisateurDao.selectByMailForCnx(email);
+	}
+	
 	public void insert(Utilisateur utilisateur) throws DALException {
 		utilisateurDao.insert(utilisateur);
 	}

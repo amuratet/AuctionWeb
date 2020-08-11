@@ -19,8 +19,12 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	// =======================================================
 //	private static final String SELECT_ALL = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.credit,u.administrateur FROM UTILISATEURS u;";
 	private static final String SELECT_BY_ID = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.mot_de_passe,u.credit,u.administrateur FROM UTILISATEURS u WHERE u.no_utilisateur = ?;";
+	
+	private static final String SELECT_BY_EMAIL_FOR_CNX = "SELECT no_utilisateur, email, mot_de_passe FROM UTILISATEURS WHERE email = ?;";
+	
 	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
 			+ "VALUES(?,?,?,?,?,?,?,?,?,0,0)";
+	
 
 	// =======================================================
 	// MÉTHODES PUBLIQUES
@@ -78,6 +82,38 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	}
 
 	@Override
+	public Utilisateur selectByMailForCnx(String email) throws DALException {
+		Utilisateur utilisateur = null;
+		PreparedStatement req = null;
+		ResultSet res = null;
+		
+		try (Connection cnx = FournisseurConnexion.obtenirConnexion()){
+			req = cnx.prepareStatement(SELECT_BY_EMAIL_FOR_CNX);
+			req.setString(1, email);
+			
+			res = req.executeQuery();
+			if (res.next()) {
+				utilisateur = new Utilisateur(
+						res.getInt("no_utilisateur"),
+						res.getString("email"),
+						res.getString("mot_de_passe")
+						);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new DALException("Impossible de remonter l'utilisateur avec le mail " + email, e);
+		} finally {
+			try {
+				if (req != null)
+					req.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return utilisateur;
+	}
+
+	@Override
 	public void insert(Utilisateur utilisateur) throws DALException {
 		PreparedStatement req = null;
 		ResultSet res = null;
@@ -113,6 +149,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 			}
 		}
 	}
+
 
 	// =======================================================
 	// MÉTHODES PRIVÉES
