@@ -24,7 +24,9 @@ public class ProfilCreer extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int vendeurId = Integer.parseInt(request.getParameter("vendeurId"));
-		System.out.println("Id du vendeur : " + vendeurId);
+//		String idVendeur = request.getParameter("vendeurId");
+//		int vendeurId = Integer.parseInt(idVendeur);
+		System.out.println("Id du vendeur : " + vendeurId + " " + vendeurId instanceof String ? "oui" : "non" );
 		
 		Utilisateur utilisateur = null;
 		
@@ -35,7 +37,7 @@ public class ProfilCreer extends HttpServlet {
 			e.printStackTrace();
 			request.setAttribute("erreur", "Echec lors de la récupération de l'utilisateur");
 		}
-		request.setAttribute("Utilisateur", utilisateur);
+		request.setAttribute("utilisateur", utilisateur);
 		System.out.println(utilisateur.toString());
 		
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/ProfilCreer.jsp");
