@@ -40,7 +40,7 @@ public class Connexion extends HttpServlet {
 			Utilisateur utilisateur = utilisateurManager.selectByMailForCnx(email);
 			userId = utilisateur.getId();
 			if (!checkMDP(utilisateur.getMdp(), mdp)) {
-				erreur = "Vous n'avez pas saisi les mêmes mots de passe";
+				erreur = "Vous n'avez pas entré le bon mot de passe";
 				vaLaBas = "/WEB-INF/pages-user/Connexion.jsp"; 
 			}
 		} catch (Exception e) {
@@ -55,7 +55,7 @@ public class Connexion extends HttpServlet {
 		
 		String idUser = Integer.toString(userId);
 		session.setAttribute("userId", idUser);
-		System.out.println("session : " + session.getAttribute("isConnected"));
+		System.out.println("session : " + session.getAttribute("userId"));
 		
 		ServletContext servletContext = getServletContext();
 		RequestDispatcher rd = servletContext.getRequestDispatcher(vaLaBas);

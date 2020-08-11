@@ -29,8 +29,7 @@
 <body>
 
 	<%
-// 		Boolean isConnected = session.getAttribute("isConnected") != "0";
-		Boolean isConnected = true;
+		Boolean isConnected = session.getAttribute("userId") != null;
 		String userId = (String) session.getAttribute("userId");
 		
 		Integer nbArticles = 35; /* request.get...() */
@@ -71,7 +70,7 @@
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span class="sr-only">(current)</span></a>
 				</li>
-				<li class="nav-item"><a class="nav-link" href="">Enchères</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/MesVente">Enchères</a></li>
 				<%
 					if (isConnected) {
 				%>
@@ -89,8 +88,8 @@
 				<%
 					} else {
 				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
 				<%
 					}
 				%>
