@@ -88,33 +88,29 @@
 
 				<div class="form-group">
 					Description : <label for="exampleFormControlTextarea1"></label>
-					<textarea class="form-control" id="exampleFormControlTextarea1"
-						rows="3"></textarea>
+					<textarea class="form-control" name="desciption"
+						id="exampleFormControlTextarea1" rows="3"></textarea>
 				</div>
 				<div class="auctionFiltres">
-					<p class="titreFiltrer">Filtrer</p>
 
 					<form action="<%=request.getContextPath()%>/Accueil" method="get">
 						<select name="filtreCategorie" class="filtresSelect">
 							<option value="">Catégories</option>
-
 							<c:forEach var="categorie" items="${ categories }">
 								<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
 							</c:forEach>
 						</select>
-						<button type="submit">${ boutonFiltre }</button>
 					</form>
 
 				</div>
 				<input id="upload" type="file" onchange="readURL(this);"
 					class="form-control border-0" style="background-color: #60de5b">
 				<label id="upload-label" for="upload"
-					class="font-weight-light text-muted"> </label> <label for="upload"
-					class="btn btn-light m-0 rounded-pill px-4"> <i
-					class="fa fa-cloud-upload mr-2 text-muted"></i><small
+					class="font-weight-light text-muted"></label> <label for="upload"
+					class="btn btn-light m-0 rounded-pill px-4"><i
+					class="fa fa-cloud-upload mr-2 text-muted"></i> <small
 					class="text-uppercase font-weight-bold text-muted">Télécharger
-						une image</small>
-				</label>
+						une image</small> </label>
 
 			</div>
 			<div class="image-area mt-4">
@@ -123,7 +119,7 @@
 			</div>
 
 
-			<div class="form-group">
+			<div class="form-group" style="width: 6em;">
 				Mise à prix : <input type="text" name="prix" class="form-control"
 					value="" />
 			</div>
@@ -146,10 +142,6 @@
 				type="submit" class="btnRegister" value="Annuler" />
 		</div>
 	</div>
-
-
-
-
 
 
 	<!-- FOOTER -->
