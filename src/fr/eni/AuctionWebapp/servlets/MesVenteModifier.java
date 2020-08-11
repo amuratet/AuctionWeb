@@ -10,19 +10,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class MesVente
+ * Servlet implementation class MesVenteModifier
  */
-@WebServlet("/MesVente")
-public class MesVente extends HttpServlet {
+@WebServlet("/MesVenteModifier")
+public class MesVenteModifier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/MesVente.jsp");
-		rd.forward(request, response);	
-		}
-
+  
 	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/MesVenteModifier.jsp");
+		rd.forward(request, response);
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);
 	}

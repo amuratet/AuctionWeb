@@ -156,18 +156,17 @@
 			</div>
 		</form>
 		<div class="col-md-9" style="margin: 0 auto; display: flex;">
-				<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier">
-					<input class="btnRegister" type="submit" value="Modifier" />
-				</a>
-			</div>
+			<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier">
+				<input class="btnRegister" type="submit" value="Modifier" />
+			</a>
+		</div>
 	</div>
 
 	<!-- FOOTER -->
 	<footer class="container-fluid text-center footerProfil"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
 		<p>
-			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis
-				| Victor</font>
+			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis | Victor</font>
 		</p>
 	</footer>
 
