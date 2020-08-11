@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -38,7 +39,8 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img
+			alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
@@ -75,89 +77,91 @@
 			</ul>
 		</div>
 	</nav>
-	
+
 	<div class="container containerProfil">
 		<h3 class="register-heading h3Profil">Mon profil</h3>
+		<form action="<%=request.getContextPath()%>/Accueil" method="get">
+			<div class="col-md-8 colProfil">
+				<div class="tab-content profile-tab" id="myTabContent">
+					<div class="tab-pane fade show active" id="home" role="tabpanel"
+						aria-labelledby="home-tab">
+						<div class="row">
+							<div class="col-md-6">
+								<label>Pseudo :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.pseudo }</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Nom :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.nom }</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Prénom :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.prenom }</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Email :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.email }</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Téléphone :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.telephone }</p>
+							</div>
+						</div>
 
-		<div class="col-md-8 colProfil">
-			<div class="tab-content profile-tab" id="myTabContent">
-				<div class="tab-pane fade show active" id="home" role="tabpanel"
-					aria-labelledby="home-tab">
-					<div class="row">
-						<div class="col-md-6">
-							<label>Pseudo :</label>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Rue :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.rue }</p>
+							</div>
 						</div>
-						<div class="col-md-6">
-							<p>GuYzMoGwAi</p>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Ville :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.ville }</p>
+							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Nom :</label>
-						</div>
-						<div class="col-md-6">
-							<p>Blaud</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Prénom :</label>
-						</div>
-						<div class="col-md-6">
-							<p>Lewis</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Email :</label>
-						</div>
-						<div class="col-md-6">
-							<p>lewisB@gmail.com</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Téléphone</label>
-						</div>
-						<div class="col-md-6">
-							<p>06.08.07.82.97</p>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-6">
-							<label>Rue :</label>
-						</div>
-						<div class="col-md-6">
-							<p>Rue de la paix</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Ville :</label>
-						</div>
-						<div class="col-md-6">
-							<p>Paris</p>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
-							<label>Code postal :</label>
-						</div>
-						<div class="col-md-6">
-							<p>75008</p>
+						<div class="row">
+							<div class="col-md-6">
+								<label>Code postal :</label>
+							</div>
+							<div class="col-md-6">
+								<p>${ utilisateur.codePostal }</p>
+							</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
-		</div>
-				<div class="col-md-9" style="margin: 0 auto; display: flex;">
-					<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier">
-					<input class="btnRegister" type="submit" value="Modifier"/>
-					</a>
-				</div>
+		</form>
+		<div class="col-md-9" style="margin: 0 auto; display: flex;">
+				<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier">
+					<input class="btnRegister" type="submit" value="Modifier" />
+				</a>
+			</div>
 	</div>
-	
+
 	<!-- FOOTER -->
 	<footer class="container-fluid text-center footerProfil"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
