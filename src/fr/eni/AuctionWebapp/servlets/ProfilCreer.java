@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.eni.AuctionWebapp.BLL.UtilisateurManager;
 import fr.eni.AuctionWebapp.BO.Utilisateur;
-import fr.eni.AuctionWebapp.DAL.UtilisateurDao;
 
 /**
  * Servlet implementation class ProfilCreer

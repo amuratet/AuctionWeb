@@ -60,7 +60,10 @@ public class Inscription extends HttpServlet {
 		
 		try {
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
-			utilisateurManager.insert(utilisateur);
+			if (erreur == null) {
+				utilisateurManager.insert(utilisateur);
+				vaLaBas = "/Accueil";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			erreur = erreur != null ? erreur : "Une erreur est survenue lors de votre inscription";
