@@ -31,5 +31,9 @@ public class UtilisateurManager {
 	public Utilisateur selectById(int id) throws DALException {
 		return utilisateurDao.selectById(id);
 	}
+	
+	public void insert(Utilisateur utilisateur) throws DALException {
+		utilisateurDao.insert(utilisateur);
+	}
 
 }

@@ -10,4 +10,6 @@ public interface UtilisateurDao {
 	
 	public Utilisateur selectById(int id) throws DALException;
 
+	public void insert(Utilisateur utilisateur) throws DALException;
+
 }

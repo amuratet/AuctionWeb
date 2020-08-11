@@ -12,6 +12,7 @@
 	rel="stylesheet">
 
 <link href="<%=request.getContextPath()%>/css/pageInscription.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 
 
 </head>
@@ -63,6 +64,19 @@
 			</ul>
 		</div>
 	</nav>
+	
+		<!-- On s'assure que tout s'est bien passé sinon alert -->
+	<%
+		if (request.getAttribute("erreur") != null) {
+	%>
+	<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		} else if (request.getAttribute("succes") != null) {
+	%>
+	<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		}
+	%>
 
 	<div class="container register">
 		<div class="row">
@@ -70,7 +84,7 @@
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 						<h3 class="register-heading">Formulaire d'inscription</h3>
-						<form action="">
+						<form action="<%= request.getContextPath()%>/Inscription" method="post">
 							<div class="row register-form">
 								<div class="col-md-6">
 									<div class="form-group">
@@ -97,13 +111,13 @@
 										<input type="text" name="telephone" class="form-control" placeholder="Téléphone *" />
 									</div>
 									<div class="form-group">
+										<input type="text" name="rue" class="form-control" placeholder="Rue *" required />
+									</div>
+									<div class="form-group">
 										<input type="text" name="cp" class="form-control" placeholder="Code postal *" required />
 									</div>
 									<div class="form-group">
 										<input type="text" name="ville" class="form-control" placeholder="Ville *" required />
-									</div>
-									<div class="form-group">
-										<input type="text" name="rue" class="form-control" placeholder="Rue *" required />
 									</div>
 									<input type="submit" class="btnRegister" value="S'inscrire" />
 								</div>

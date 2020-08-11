@@ -104,7 +104,11 @@
 	<%
 		if (request.getAttribute("erreur") != null) {
 	%>
-	<div class="alert alert-danger" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		} else if (request.getAttribute("succes") != null) {
+	%>
+	<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("succes")%></div>
 	<%
 		}
 	%>
