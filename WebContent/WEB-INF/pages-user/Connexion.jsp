@@ -11,6 +11,9 @@
 
 <link href="<%=request.getContextPath()%>/css/pageConnexion.css" rel="stylesheet">
 
+<link href="<%=request.getContextPath()%>/css/profilCreer.css"
+	rel="stylesheet">
+
 <style>
 
 </style>

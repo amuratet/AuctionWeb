@@ -2,7 +2,7 @@
 
 .register {
 	background-color: #009933;
-	margin-top: 5%;
+	margin-top: 2%;
 	padding: 2%;
 	border-radius: 5rem;
 }
@@ -51,9 +51,13 @@
 
 
 
+
+
 %
 {
 transform
+
+
 
 
 
@@ -63,10 +67,16 @@ transform
 
 
 
+
+
 translateY
 
 
+
+
 (
+
+
 
 
 
@@ -76,7 +86,11 @@ translateY
 
 
 
+
+
 )
+
+
 
 
 ;
@@ -92,9 +106,13 @@ keyframes mover { 0% {
 
 
 
+
+
 %
 {
 transform
+
+
 
 
 
@@ -104,10 +122,16 @@ transform
 
 
 
+
+
 translateY
 
 
+
+
 (
+
+
 
 
 
@@ -117,7 +141,11 @@ translateY
 
 
 
+
+
 )
+
+
 
 
 ;
@@ -135,7 +163,8 @@ translateY
 }
 
 .btnRegister {
-	float: right;
+	display: inline-block;
+	width: 10em !important;
 	margin-top: 10%;
 	border: none;
 	border-radius: 1.5rem;
@@ -145,6 +174,7 @@ translateY
 	font-weight: 600;
 	width: 50%;
 	cursor: pointer;
+	background-color: #60de5b!important;
 }
 
 .register .nav-tabs {
@@ -182,4 +212,11 @@ translateY
 	margin-top: 8%;
 	margin-bottom: -15%;
 	color: #495057;
+}
+
+.footerConnexion {
+	background-color: #f2f2f2;
+	padding: 25px;
+	position: fixed;
+	bottom: 0;
 }

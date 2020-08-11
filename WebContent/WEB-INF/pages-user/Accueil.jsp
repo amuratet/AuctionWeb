@@ -31,7 +31,7 @@
 	<%
 		String userConnected = (String) getInitParameter("userConnected");
 	Boolean isConnected = userConnected == "true";
-	isConnected = false;
+	isConnected = true;
 	/* List<String> nomsVendeurs = Liste<String> getInitParameter("nomVendeur"); */
 	String titreArticle = "Lampe à pétrole bucolique";
 	String nomVendeur = "Avrell Dalton";
@@ -88,7 +88,7 @@
 					if (isConnected) {
 				%>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Se déconnecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Se déconnecter</a></li>
 				<%
 					} else {
 				%>
@@ -104,7 +104,11 @@
 	<%
 		if (request.getAttribute("erreur") != null) {
 	%>
-	<div class="alert alert-danger" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		} else if (request.getAttribute("succes") != null) {
+	%>
+	<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("succes")%></div>
 	<%
 		}
 	%>
@@ -133,9 +137,6 @@
 	<!-- LISTE DES ARTICLES -->
 	<div class="container">
 		<div class="row">
-
-
-
 			<c:forEach var="article" items="${ articles }">
 				<div class="col-sm-6 articleDisplay">
 					<div class="card articleContent">
@@ -145,7 +146,7 @@
 								class="img-responsive" alt="Image">
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="#" class="nomVendeur"> - Avrell Dalton - </a>
+								<a href="<%=request.getContextPath()%>/ProfilCreer?vendeurId=${article.idVendeur}" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
 							</p>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>

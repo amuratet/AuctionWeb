@@ -27,3 +27,12 @@
 	background-color: #f2f2f2;
 	padding: 25px;
 }
+
+/***************************************************
+			MESSAGE ALERT
+****************************************************/
+.auctionAlert {
+	margin-top: 2em;
+	width: 70%;
+	margin: auto;
+}
