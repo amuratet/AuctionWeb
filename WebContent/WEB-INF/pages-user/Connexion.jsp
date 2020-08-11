@@ -71,6 +71,18 @@
 			</ul>
 		</div>
 	</nav>
+	
+		<%
+		if (request.getAttribute("erreur") != null) {
+	%>
+	<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+	<%
+		} else if (request.getAttribute("succes") != null) {
+	%>
+	<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("succes")%></div>
+	<%
+		}
+	%>
 
 	<div class="container login-container">
 		<div class="row">

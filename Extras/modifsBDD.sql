@@ -32,6 +32,9 @@ ALTER TABLE CATEGORIES ALTER COLUMN nomFr VARCHAR(30) NOT NULL;
 -- On ajoute l'unicité des pseudo Utilisateurs
 ALTER TABLE UTILISATEURS ADD CONSTRAINT uq_pseudo UNIQUE (pseudo);
 
+-- On ajoute l'unicité des emails des Utilisateurs
+ALTER TABLE UTILISATEURS ADD CONSTRAINT uq_email UNIQUE (email);
+
 
 
 ---------------------------------------------------------------------

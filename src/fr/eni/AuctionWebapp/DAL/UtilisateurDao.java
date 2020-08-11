@@ -9,6 +9,8 @@ public interface UtilisateurDao {
 	public List<Utilisateur> selectAll() throws DALException;
 	
 	public Utilisateur selectById(int id) throws DALException;
+	
+	public Utilisateur selectByMailForCnx(String email) throws DALException;
 
 	public void insert(Utilisateur utilisateur) throws DALException;
 
