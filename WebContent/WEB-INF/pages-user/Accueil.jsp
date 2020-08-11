@@ -146,7 +146,7 @@
 								class="img-responsive" alt="Image">
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="<%=request.getContextPath()%>/ProfilCreer?vendeurId=${article.idVendeur}" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
+								<a href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
 							</p>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
