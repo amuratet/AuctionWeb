@@ -76,27 +76,21 @@
 		<div class="row">
 			<div class="col-md-6 login-form-1">
 				<h3>Se connecter</h3>
-				<form>
+				<form action="<%= request.getContextPath()%>/Connexion" method="post">
 					<div class="form-group">
-						<input type="text" class="form-control"
-							placeholder="Entrer votre Email" value="" />
+						<input type="text" name="email" class="form-control"	placeholder="Entrer votre Email" />
 					</div>
 					<div class="form-group">
-						<input type="password" class="form-control"
-							placeholder="Entrer Mot de passe" value="" />
+						<input type="password" name="mdp" class="form-control" placeholder="Entrer Mot de passe" />
 					</div>
-					<label> <input type="checkbox"> Se souvenir de moi.
-					</label>
+					<label> <input type="checkbox" name="checkSouvenir"> Se souvenir de moi.</label>
 					<div class="form-group" style="text-align: center;">
 						<input type="submit" class="btnSubmit" value="Connexion" />
 					</div>
 
-					<div class="form-group" style="text-align: center;">
-						<a href="" class="ForgetPwd">Mot de passe oublier?</a>
-					</div>
 					<div class="form-group">
 						<p>Pas encore membre ?</p>
-						<a class="btnRegister" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a>
+						<a class="btnA btnRegister" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a>
 					</div>
 				</form>
 			</div>
