@@ -2,7 +2,7 @@
 					LISEZ CECI POUR FAIRE FONCTIONNER L'APPLICATION
 ======================================================================================================
 
-Projet construit avec JDK 11 --- TOMCAT 9 --- 
+Existant : projet construit avec --- JDK 11 --- TOMCAT 9 --- 
 
 1 - Modifier le fichier /AuctionWeb/WebContent/META-INF/context.xml pour y placer votre base de donnée et vos accès personnel
 
