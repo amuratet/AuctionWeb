@@ -14,20 +14,25 @@
 
 <link href="<%=request.getContextPath()%>/css/mesVente.css"
 	rel="stylesheet">
-
-
+	
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
+	
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 
 </head>
 <body>
+
 	<!---------- NavBar ---------->
 	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	// 	isConnected = false;
-	isConnected = true;
+		Boolean isConnected = session.getAttribute("userId") != null;
+		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+		String idUser = (String) session.getAttribute("userId");
+		int userId = 0;
+		if (idUser != null)
+			userId = Integer.parseInt(idUser);
+		System.out.println("user : " + userId);
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
@@ -58,10 +63,17 @@
 			</ul>
 			<ul class="navbar-nav">
 				<%
+					if (isAdmin) {
+				%>
+				<li class="nav-item nav-link auctionAdmin">Admin !</li>
+				<%
+					}
+				%>
+				<%
 					if (isConnected) {
 				%>
 				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
+					href="<%=request.getContextPath()%>/ProfilCreer?compte=<%= userId %>">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Se
 						déconnecter</a></li>
 				<%
@@ -80,8 +92,9 @@
 
 	<div class="container mainContainer">
 		<div class="col-lg-6 mx-auto">
-			<h3 style="text-align: center;">Mes Ventes</h3>
-			method="get">
+			<h3 style="text-align: center;">Modifier mon article</h3>
+			
+				<form action="<%=request.getContextPath()%>/MesVente" method="get">
 			<div class="col-md-12">
 				<div class="form-group">
 					Aritcle : <input type="text" name="nomArticle" class="form-control"
@@ -95,14 +108,13 @@
 				</div>
 				<div class="auctionFiltres">
 
-					<form action="<%=request.getContextPath()%>/Accueil" method="get">
 						<select name="filtreCategorie" class="filtresSelect">
-							<option value="">Catégories</option>
+							<option>Catégorie</option>
 							<c:forEach var="categorie" items="${ categories }">
 								<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
 							</c:forEach>
 						</select>
-					</form>
+					
 
 				</div>
 				<input id="upload" type="file" onchange="readURL(this);"
@@ -141,9 +153,10 @@
 					type="text" name="codePostal" class="form-control" placeholder=""
 					value="" />
 			</div>
+			</form>
 			<input type="submit" class="btnRegister" value="Enregistrer" /> <input
-				type="submit" class="btnRegister" value="Annuler" /> <input
-				type="submit" class="btnRegister" value="Annuler la vente" />
+				type="submit" class="btnRegister" value="Annuler" />
+				<a href="<%=request.getContextPath()%>/Accueil"><input type="submit" class="btnRegister" value="Annuler la vente" /></a>
 
 		</div>
 	</div>
@@ -154,7 +167,7 @@
 
 
 	<!-- FOOTER -->
-	<footer class="container-fluid text-center footerProfil"
+	<footer class="container-fluid text-center auctionFooter"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
 		<p>
 			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis

@@ -14,7 +14,9 @@
 
 <link href="<%=request.getContextPath()%>/css/mesVente.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
+<link
+	href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css"
+	rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -22,10 +24,15 @@
 
 </head>
 <body>
+
 	<%
 		Boolean isConnected = session.getAttribute("userId") != null;
-		String userId = (String) session.getAttribute("userId");
-		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+	Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+	String idUser = (String) session.getAttribute("userId");
+	int userId = 0;
+	if (idUser != null)
+		userId = Integer.parseInt(idUser);
+	System.out.println("user : " + userId);
 	%>
 	<!---------- NavBar ---------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
@@ -63,6 +70,13 @@
 					}
 				%>
 				<%
+					if (isAdmin) {
+				%>
+				<li class="nav-item nav-link auctionAdmin">Admin !</li>
+				<%
+					}
+				%>
+				<%
 					if (isConnected) {
 				%>
 				<li class="nav-item"><a class="nav-link"
@@ -85,56 +99,55 @@
 
 	<div class="container mainContainer">
 		<div class="col-lg-6 mx-auto">
-			<h3 style="text-align: center;">Mes Ventes</h3>
-			<div class="col-md-12">
-				<div class="form-group">
-					Aritcle : <input type="text" name="nomArticle" class="form-control"
-						value="" />
-				</div>
+			<h3 style="text-align: center;">Nouvelle vente</h3>
+			<form action="<%=request.getContextPath()%>/Accueil" name="vente" method="post">
+				<div class="col-md-12">
+					<div class="form-group">
+						Aritcle : <input type="text" name="nomArticle"
+							class="form-control" value="" />
+					</div>
 
-				<div class="form-group">
-					Description : <label for="exampleFormControlTextarea1"></label>
-					<textarea class="form-control" name="desciption"
-						id="exampleFormControlTextarea1" rows="3"></textarea>
-				</div>
-				<div class="auctionFiltres">
+					<div class="form-group">
+						Description : <label for="exampleFormControlTextarea1"></label>
+						<textarea class="form-control" name="desciption"
+							id="exampleFormControlTextarea1" rows="3"></textarea>
+					</div>
+					<div class="auctionFiltres">
 
-					<form action="<%=request.getContextPath()%>/Accueil" method="get">
-						<select name="filtreCategorie" class="filtresSelect">
-							<option value="">Catégories</option>
+						<select name="categorie" class="filtresSelect">
+							<option>Catégorie</option>
 							<c:forEach var="categorie" items="${ categories }">
 								<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
 							</c:forEach>
 						</select>
-					</form>
+
+					</div>
+					<input id="upload" type="file" onchange="readURL(this);"
+						class="form-control border-0" style="background-color: #60de5b">
+					<label id="upload-label" for="upload"
+						class="font-weight-light text-muted"></label> <label for="upload"
+						class="btn btn-light m-0 rounded-pill px-4"><i
+						class="fa fa-cloud-upload mr-2 text-muted"></i> <small
+						class="text-uppercase font-weight-bold text-muted">Télécharger
+							une image</small> </label>
 
 				</div>
-				<input id="upload" type="file" onchange="readURL(this);"
-					class="form-control border-0" style="background-color: #60de5b">
-				<label id="upload-label" for="upload"
-					class="font-weight-light text-muted"></label> <label for="upload"
-					class="btn btn-light m-0 rounded-pill px-4"><i
-					class="fa fa-cloud-upload mr-2 text-muted"></i> <small
-					class="text-uppercase font-weight-bold text-muted">Télécharger
-						une image</small> </label>
-
-			</div>
-			<div class="image-area mt-4">
-				<img id="imageResult" src="#" alt=""
-					class="img-fluid rounded shadow-sm mx-auto d-block">
-			</div>
+				<div class="image-area mt-4">
+					<img id="imageResult" src="#" alt=""
+						class="img-fluid rounded shadow-sm mx-auto d-block">
+				</div>
 
 
-			<div class="form-group" style="width: 6em;">
-				Mise à prix : <input type="text" name="prix" class="form-control"
-					value="" />
-			</div>
-			<div class="form-group">
-				Début de l'enchère : <input type="date" name="debut"
-					class="form-control" placeholder="" value="" />
-			</div>
-			<div class="form-group">
-				Fin de l'enchère : <input type="date" name="fin"
+				<div class="form-group" style="width: 6em;">
+					Mise à prix : <input type="text" name="prix" class="form-control"
+						value="" />
+				</div>
+				<div class="form-group">
+					Début de l'enchère : <input type="date" name="debut"
+						class="form-control" placeholder="" value="" />
+				</div>
+				<div class="form-group">
+					Fin de l'enchère : <input type="date" name="fin"
 					class="form-control" placeholder="" value="" />
 			</div>
 			<div class="retrait">
@@ -144,6 +157,7 @@
 					type="text" name="codePostal" class="form-control" placeholder=""
 					value="" />
 			</div>
+			</form>
 			<input type="submit" class="btnRegister" value="Enregistrer" /> <input
 				type="submit" class="btnRegister" value="Annuler" />
 		</div>
@@ -151,7 +165,7 @@
 
 
 	<!-- FOOTER -->
-	<footer class="container-fluid text-center footerProfil"
+	<footer class="container-fluid text-center auctionFooter"
 		style="border-top: 3px solid #b30000; background-color: #474747;">
 		<p>
 			<font color="#FFFFFF">AuctionWebTeam ©ENI-2020 Amilcar | Lewis

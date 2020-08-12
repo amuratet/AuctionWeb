@@ -18,13 +18,6 @@
 </head>
 <body>
 
-	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	isConnected = false;
-	// 	isConnected = true;
-	%>
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
 		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil">AuctionWebapp</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -39,28 +32,10 @@
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
 						class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="">Enchères</a></li>
-				<%
-					if (isConnected) {
-				%>
-				<li class="nav-item"><a class="nav-link" href="">Vendre un article</a></li>
-				<%
-					}
-				%>
 			</ul>
 			<ul class="navbar-nav">
-				<%
-					if (isConnected) {
-				%>
-				<li class="nav-item"><a class="nav-link" href="">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="">Se déconnecter</a></li>
-				<%
-					} else {
-				%>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se
 						connecter</a></li>
-				<%
-					}
-				%>
 			</ul>
 		</div>
 	</nav>

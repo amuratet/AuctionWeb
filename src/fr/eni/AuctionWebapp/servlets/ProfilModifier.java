@@ -20,20 +20,21 @@ public class ProfilModifier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int vendeurId = Integer.parseInt(request.getParameter("compte"));
+		int userId = Integer.parseInt(request.getParameter("compte"));
 
-		System.out.println("Id du vendeur : " + vendeurId + " " + vendeurId instanceof String ? "oui" : "non");
+		System.out.println("Id du vendeur : " + userId + " " + userId instanceof String ? "oui" : "non");
 
 		Utilisateur utilisateur = null;
 
 		try {
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
-			utilisateur = utilisateurManager.selectById(vendeurId);
+			utilisateur = utilisateurManager.selectById(userId);
 		} catch (Exception e) {
 			e.printStackTrace();
 			request.setAttribute("erreur", "Echec lors de la récupération de l'utilisateur");
 		}
 		request.setAttribute("utilisateur", utilisateur);
+		request.setAttribute("userId", userId);
 		System.out.println(utilisateur.toString());
 
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/ProfilModifier.jsp");

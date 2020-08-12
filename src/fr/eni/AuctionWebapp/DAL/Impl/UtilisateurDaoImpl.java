@@ -160,7 +160,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		// .getBoolean("administrateur"));
 		// }
 		// }
-
+		String hello = "hello";
+		System.out.println(hello);
 	}
 
 	// =======================================================

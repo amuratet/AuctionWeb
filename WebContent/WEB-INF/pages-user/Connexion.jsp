@@ -13,6 +13,9 @@
 
 <link href="<%=request.getContextPath()%>/css/profilCreer.css"
 	rel="stylesheet">
+	
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
+	
 
 <style>
 
@@ -22,10 +25,12 @@
 <body>
 
 	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	isConnected = false;
-	// 	isConnected = true;
+		Boolean isConnected = session.getAttribute("userId") != null;
+		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+		String idUser = (String) session.getAttribute("userId");
+		int userId = 0;
+		if (idUser != null)
+			userId = Integer.parseInt(idUser);
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
