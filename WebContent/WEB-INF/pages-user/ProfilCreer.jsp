@@ -169,7 +169,7 @@
 			if (isAdmin || userId == vendeurId) {
 		%>
 		<div class="col-md-9" style="margin: 0 auto; display: flex;">
-			<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier?compte=<%= userId %>"> <input
+			<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier?compte=<%= vendeurId %>"> <input
 				class="btnRegister" type="submit" value="Modifier" />
 			</a>
 		</div>
