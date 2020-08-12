@@ -36,3 +36,16 @@
 	width: 70%;
 	margin: auto;
 }
+
+/***************************************************
+			AFFICHAGE ADMIN
+****************************************************/
+@keyframes adminTextAnim {
+  from {color: #fff; background-color:#000;}
+  to	{color: #000; background-color:#fff;}
+}
+.auctionAdmin {
+	font-weight: bold;
+	border-radius: .2em;
+	animation: adminTextAnim 1s ease-in-out infinite alternate;
+}

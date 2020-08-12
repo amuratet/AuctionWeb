@@ -20,7 +20,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 //	private static final String SELECT_ALL = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.credit,u.administrateur FROM UTILISATEURS u;";
 	private static final String SELECT_BY_ID = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.mot_de_passe,u.credit,u.administrateur FROM UTILISATEURS u WHERE u.no_utilisateur = ?;";
 	
-	private static final String SELECT_BY_EMAIL_FOR_CNX = "SELECT no_utilisateur, email, mot_de_passe FROM UTILISATEURS WHERE email = ?;";
+	private static final String SELECT_BY_EMAIL_FOR_CNX = "SELECT no_utilisateur, email, mot_de_passe, administrateur FROM UTILISATEURS WHERE email = ?;";
 	
 	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
 			+ "VALUES(?,?,?,?,?,?,?,?,?,0,0)";
@@ -96,7 +96,8 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 				utilisateur = new Utilisateur(
 						res.getInt("no_utilisateur"),
 						res.getString("email"),
-						res.getString("mot_de_passe")
+						res.getString("mot_de_passe"),
+						res.getBoolean("administrateur")
 						);
 			}
 		} catch (SQLException e) {

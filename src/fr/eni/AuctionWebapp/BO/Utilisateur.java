@@ -26,10 +26,11 @@ public class Utilisateur {
 	//	=======================================================
 	//					CONSTRUCTEURS
 	//	=======================================================
-	public Utilisateur(int id,String email, String mdp) {
+	public Utilisateur(int id,String email, String mdp, Boolean admin) {
 		this.id = id;
 		this.email = email;
 		this.mdp = mdp;
+		this.admin = admin;
 	}
 	public Utilisateur(String pseudo, String nom, String prenom, String email, String telephone, String rue, String codePostal,
 			String ville, String mdp) {

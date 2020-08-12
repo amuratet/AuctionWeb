@@ -31,13 +31,15 @@
 	<%
 		Boolean isConnected = session.getAttribute("userId") != null;
 		String userId = (String) session.getAttribute("userId");
-		
+		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+
 		Integer nbArticles = 35; /* request.get...() */
 		Integer articlesParPage = 10;
 		Integer currentPagination = 0; /* à faire mouvoir */
 		Integer nbPages = nbArticles / articlesParPage;
 		Integer maxPaginationsDisplay = 6;
 	%>
+
 
 
 	<div class="jumbotron auctionEnteteAccueil" style="margin-bottom: 0;">
@@ -68,8 +70,8 @@
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span class="sr-only">(current)</span></a>
-				</li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
+						class="sr-only">(current)</span></a></li>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/MesVente">Enchères</a></li>
 				<%
 					if (isConnected) {
@@ -81,14 +83,24 @@
 			</ul>
 			<ul class="navbar-nav">
 				<%
+					if (isAdmin) {
+				%>
+				<li class="nav-item nav-link auctionAdmin">Admin !</li>
+				<%
+					}
+				%>
+				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer?compte=<%= userId %>">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Se déconnecter</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="<%=request.getContextPath()%>/ProfilCreer?compte=<%=userId%>">Mon profil</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Se
+						déconnecter</a></li>
 				<%
 					} else {
 				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se connecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se
+						connecter</a></li>
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
 				<%
 					}
@@ -96,6 +108,8 @@
 			</ul>
 		</div>
 	</nav>
+
+
 	<!-- On s'assure que tout s'est bien passé sinon alert -->
 	<%
 		if (request.getAttribute("erreur") != null) {
@@ -124,7 +138,7 @@
 				<option value="">Date</option>
 				<option value="dateAsc">Croissant</option>
 				<option value="dateDesc">Décroissant</option>
-			</select> 
+			</select>
 			<button type="submit">${ boutonFiltre }</button>
 		</form>
 
@@ -142,7 +156,8 @@
 								class="img-responsive" alt="Image">
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}" class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
+								<a href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}"
+									class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
 							</p>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>

@@ -30,6 +30,7 @@ public class Connexion extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int userId = 0;
+		Boolean isAdmin = false;
 		HttpSession session = request.getSession();
 		String email = checkStringFullfilled(request.getParameter("email"));
 		String mdp = checkStringFullfilled(request.getParameter("mdp"));
@@ -39,9 +40,14 @@ public class Connexion extends HttpServlet {
 			UtilisateurManager utilisateurManager = new UtilisateurManager();
 			Utilisateur utilisateur = utilisateurManager.selectByMailForCnx(email);
 			userId = utilisateur.getId();
+			isAdmin = utilisateur.getAdmin();
+			System.out.println("utilisateur mdp : " + utilisateur.getMdp() + " --- form mdp : " + mdp);
 			if (!checkMDP(utilisateur.getMdp(), mdp)) {
 				erreur = "Vous n'avez pas entré le bon mot de passe";
 				vaLaBas = "/WEB-INF/pages-user/Connexion.jsp"; 
+			} else {
+				erreur = null;
+				vaLaBas = "/Accueil";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,6 +61,8 @@ public class Connexion extends HttpServlet {
 		
 		String idUser = Integer.toString(userId);
 		session.setAttribute("userId", idUser);
+		session.setAttribute("isAdmin", isAdmin == true ? "oui" : "non");
+		System.out.println("admin : " + isAdmin);
 		System.out.println("session : " + session.getAttribute("userId"));
 		
 		ServletContext servletContext = getServletContext();
