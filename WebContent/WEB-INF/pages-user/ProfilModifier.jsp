@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,8 @@
 			aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img
+			alt="Logo"
 			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png"
 			width="55" style="position: relative;"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
@@ -61,7 +63,8 @@
 				%>
 				<li class="nav-item"><a class="nav-link"
 					href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="#">Se déconnecter</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Se
+						déconnecter</a></li>
 				<%
 					} else {
 				%>
@@ -109,9 +112,10 @@
 										class="form-control"
 										placeholder="Confirmer le nouveau mot de passe *" value="" />
 								</div>
-								
-									Credit : <input class="inputCredit" type="text" name="credit" class="form-control" value="10000" readonly  />
-								
+
+								Credit : <input class="inputCredit" type="text" name="credit"
+									class="form-control" value="10000" readonly />
+
 							</div>
 							<div class="col-md-6">
 								<div class="form-group">

@@ -39,5 +39,9 @@ public class UtilisateurManager {
 	public void insert(Utilisateur utilisateur) throws DALException {
 		utilisateurDao.insert(utilisateur);
 	}
+	
+	public void update(Utilisateur utilisateur) throws DALException {
+		utilisateurDao.update(utilisateur);
+	}
 
 }
