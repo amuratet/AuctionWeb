@@ -32,7 +32,6 @@
 		int userId = 0;
 		if (idUser != null)
 			userId = Integer.parseInt(idUser);
-		int vendeurId = (Integer) request.getAttribute("userId");
 		System.out.println("user : " + userId);
 	%>
 
