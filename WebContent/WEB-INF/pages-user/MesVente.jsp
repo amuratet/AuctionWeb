@@ -14,6 +14,7 @@
 
 <link href="<%=request.getContextPath()%>/css/mesVente.css"
 	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -21,14 +22,12 @@
 
 </head>
 <body>
-	<!---------- NavBar ---------->
 	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	// 	isConnected = false;
-	isConnected = true;
+		Boolean isConnected = session.getAttribute("userId") != null;
+		String userId = (String) session.getAttribute("userId");
+		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
 	%>
-
+	<!---------- NavBar ---------->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
 		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil">AuctionWebapp</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -56,6 +55,13 @@
 				%>
 			</ul>
 			<ul class="navbar-nav">
+				<%
+					if (isAdmin) {
+				%>
+				<li class="nav-item nav-link auctionAdmin">Admin !</li>
+				<%
+					}
+				%>
 				<%
 					if (isConnected) {
 				%>
