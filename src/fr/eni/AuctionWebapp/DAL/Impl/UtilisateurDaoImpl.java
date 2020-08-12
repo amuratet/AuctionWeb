@@ -17,14 +17,18 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	// =======================================================
 	// CONSTANTES
 	// =======================================================
-//	private static final String SELECT_ALL = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.credit,u.administrateur FROM UTILISATEURS u;";
-	private static final String SELECT_BY_ID = "SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.mot_de_passe,u.credit,u.administrateur FROM UTILISATEURS u WHERE u.no_utilisateur = ?;";
-	
+	// private static final String SELECT_ALL = "SELECT
+	// u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.credit,u.administrateur FROM UTILISATEURS u;";
+	private static final String SELECT_BY_ID =
+		"SELECT u.no_utilisateur,u.pseudo,u.nom,u.prenom,u.email,u.telephone,u.rue,u.code_postal,u.ville,u.mot_de_passe,u.credit,u.administrateur FROM UTILISATEURS u WHERE u.no_utilisateur = ?;";
+
 	private static final String SELECT_BY_EMAIL_FOR_CNX = "SELECT no_utilisateur, email, mot_de_passe FROM UTILISATEURS WHERE email = ?;";
-	
+
 	private static final String INSERT_UTILISATEUR = "INSERT INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
-			+ "VALUES(?,?,?,?,?,?,?,?,?,0,0)";
-	
+		+ "VALUES(?,?,?,?,?,?,?,?,?,0,0)";
+
+	private static final String UPDATE_UTILISATEUR = "UPDATE INTO UTILISATEURS (pseudo,nom,prenom,email,telephone,rue,code_postal,ville,mot_de_passe,credit,administrateur)"
+		+ "VALUES(?,?,?,?,?,?,?,?,?,0,0)";
 
 	// =======================================================
 	// MÉTHODES PUBLIQUES
@@ -46,26 +50,15 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 			req.setInt(1, id);
 
 			res = req.executeQuery();
-			
+
 			if (res.next()) {
-				
-				utilisateur = new Utilisateur(
-					res.getInt("no_utilisateur"),
-					res.getString("pseudo"),
-					res.getString("nom"),
-					res.getString("prenom"),
-					res.getString("email"),
-					res.getString("telephone"),
-					res.getString("rue"),
-					res.getString("code_postal"),
-					res.getString("ville"),
-					res.getString("mot_de_passe"),
-					res.getInt("credit"),
-					res.getBoolean("administrateur"));
-			}else {
+
+				utilisateur = new Utilisateur(res.getInt("no_utilisateur"), res.getString("pseudo"), res.getString("nom"), res.getString("prenom"), res.getString("email"), res
+					.getString("telephone"), res.getString("rue"), res.getString("code_postal"), res.getString("ville"), res.getString("mot_de_passe"), res.getInt("credit"), res
+						.getBoolean("administrateur"));
+			} else {
 				System.out.println("Erreur paranormale");
 			}
-			 
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -86,18 +79,14 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		Utilisateur utilisateur = null;
 		PreparedStatement req = null;
 		ResultSet res = null;
-		
-		try (Connection cnx = FournisseurConnexion.obtenirConnexion()){
+
+		try (Connection cnx = FournisseurConnexion.obtenirConnexion()) {
 			req = cnx.prepareStatement(SELECT_BY_EMAIL_FOR_CNX);
 			req.setString(1, email);
-			
+
 			res = req.executeQuery();
 			if (res.next()) {
-				utilisateur = new Utilisateur(
-						res.getInt("no_utilisateur"),
-						res.getString("email"),
-						res.getString("mot_de_passe")
-						);
+				utilisateur = new Utilisateur(res.getInt("no_utilisateur"), res.getString("email"), res.getString("mot_de_passe"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -117,7 +106,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 	public void insert(Utilisateur utilisateur) throws DALException {
 		PreparedStatement req = null;
 		ResultSet res = null;
-//		1.pseudo, 2.nom, 3.prenom, 4.email, 5.telephone, 6.rue, 7.code_postal, 8.ville, 9.mot_de_passe, 10.credit, 11.administrateur
+		// 1.pseudo, 2.nom, 3.prenom, 4.email, 5.telephone, 6.rue, 7.code_postal, 8.ville, 9.mot_de_passe, 10.credit, 11.administrateur
 		try (Connection cnx = FournisseurConnexion.obtenirConnexion()) {
 			req = cnx.prepareStatement(INSERT_UTILISATEUR, Statement.RETURN_GENERATED_KEYS);
 			req.setString(1, utilisateur.getPseudo());
@@ -129,7 +118,7 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 			req.setString(7, utilisateur.getCodePostal());
 			req.setString(8, utilisateur.getVille());
 			req.setString(9, utilisateur.getMdp());
-			
+
 			int nbLignesInserees = req.executeUpdate();
 			System.out.println("nombre de lignes insérées : " + nbLignesInserees);
 			if (nbLignesInserees == 1) {
@@ -150,6 +139,29 @@ public class UtilisateurDaoImpl implements UtilisateurDao {
 		}
 	}
 
+	@Override
+	public void update(Utilisateur utilisateur) throws DALException {
+		// Utilisateur utilisateurUpdate = utilisateur.getPseudo();
+//		PreparedStatement req = null;
+//		ResultSet res = null;
+
+		// try (Connection cnx = FournisseurConnexion.obtenirConnexion()) {
+		// req = cnx.prepareStatement(UPDATE_UTILISATEUR);
+		// req.setInt(1, id);
+		//
+		// res = req.executeQuery();
+		//
+		// if (res.next()) {
+		//
+		// utilisateur = new Utilisateur(res.getInt("no_utilisateur"), res.getString("pseudo"), res.getString("nom"), res.getString("prenom"),
+		// res.getString("email"), res
+		// .getString("telephone"), res.getString("rue"), res.getString("code_postal"), res.getString("ville"), res.getString("mot_de_passe"),
+		// res.getInt("credit"), res
+		// .getBoolean("administrateur"));
+		// }
+		// }
+
+	}
 
 	// =======================================================
 	// MÉTHODES PRIVÉES

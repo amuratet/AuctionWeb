@@ -23,8 +23,7 @@ public class ProfilCreer extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int vendeurId = Integer.parseInt(request.getParameter("compte"));
-//		String idVendeur = request.getParameter("vendeurId");
-//		int vendeurId = Integer.parseInt(idVendeur);
+		
 		System.out.println("Id du vendeur : " + vendeurId + " " + vendeurId instanceof String ? "oui" : "non" );
 		
 		Utilisateur utilisateur = null;
