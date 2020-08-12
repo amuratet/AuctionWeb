@@ -81,7 +81,7 @@
 	</nav>
 
 	<div class="container containerProfil">
-		<h3 class="register-heading h3Profil">${ utilisateur.pseudo }</h3>
+		<h3 class="register-heading h3Profil">Profil de ${ utilisateur.pseudo }</h3>
 		<form action="<%=request.getContextPath()%>/Accueil" method="get">
 			<div class="col-md-8 colProfil">
 				<div class="tab-content profile-tab" id="myTabContent">
@@ -169,7 +169,7 @@
 			if (isAdmin || userId == vendeurId) {
 		%>
 		<div class="col-md-9" style="margin: 0 auto; display: flex;">
-			<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier"> <input
+			<a class="btnA" href="<%=request.getContextPath()%>/ProfilModifier?compte=${ utilisateur.id }"> <input
 				class="btnRegister" type="submit" value="Modifier" />
 			</a>
 		</div>

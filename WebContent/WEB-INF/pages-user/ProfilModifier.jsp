@@ -17,6 +17,7 @@
 	rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/profil.css"
 	rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
@@ -25,10 +26,14 @@
 <body>
 
 	<%
-		String userConnected = (String) getInitParameter("userConnected");
-	Boolean isConnected = userConnected == "true";
-	// 	isConnected = false;
-	isConnected = true;
+		Boolean isConnected = session.getAttribute("userId") != null;
+		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
+		String idUser = (String) session.getAttribute("userId");
+		int userId = 0;
+		if (idUser != null)
+			userId = Integer.parseInt(idUser);
+		int vendeurId = (Integer) request.getAttribute("userId");
+		System.out.println("user : " + userId);
 	%>
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
@@ -57,12 +62,21 @@
 					}
 				%>
 			</ul>
+			
 			<ul class="navbar-nav">
+			
+				<%
+					if (isAdmin) {
+				%>
+					<li class="nav-item nav-link auctionAdmin">Admin !</li>
+				<%
+					}
+				%>
 				<%
 					if (isConnected) {
 				%>
 				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/ProfilCreer">Mon profil</a></li>
+					href="<%=request.getContextPath()%>/ProfilCreer?compte=<%= userId %>">Mon profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Se
 						déconnecter</a></li>
 				<%
@@ -83,70 +97,52 @@
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
-						<h3 class="register-heading">Mon profil</h3>
-						<div class="row register-form">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="text" name="pseudo" class="form-control"
-										placeholder="Pseudo *" value="" />
+						<h3 class="register-heading">Profil de ${ utilisateur.pseudo }</h3>
+						<form action="<%=request.getContextPath()%>/ProfilCree" method="post">
+							<div class="row register-form">
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="text" name="pseudo" class="form-control" value="${ utilisateur.pseudo }" />
+									</div>
+									<div class="form-group">
+										<input type="text" name="nom" class="form-control" value="${ utilisateur.nom }" />
+									</div>
+									<div class="form-group">
+										<input type="text" name="prenom" class="form-control" value="${ utilisateur.prenom }" />
+									</div>
+	
+									<div class="form-group">
+										<input type="password" name="mdp1" class="form-control" value="${ utilisateur.mdp }" />
+									</div>
+									<div class="form-group">
+										<input type="password" name="mdp2" class="form-control" value="${ utilisateur.mdp }" />
+									</div>
+	
+									<span  class="spanCredit">Credit : ${ utilisateur.credit } </span>
 								</div>
-								<div class="form-group">
-									<input type="text" name="nom" class="form-control"
-										placeholder="Nom *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="text" name="prenom" class="form-control"
-										placeholder="Prenom *" value="" />
-								</div>
-
-								<div class="form-group">
-									<input type="password" name="mdp" class="form-control"
-										placeholder="Mot de passe actuel *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="password" name="newmdp" class="form-control"
-										placeholder="Nouveau mot de passe *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="password" name="newconfirmMdp"
-										class="form-control"
-										placeholder="Confirmer le nouveau mot de passe *" value="" />
-								</div>
-
-								Credit : <input class="inputCredit" type="text" name="credit"
-									class="form-control" value="10000" readonly />
-
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="email" name="email" class="form-control"
-										placeholder="Email *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="tel" name="phone" class="form-control"
-										placeholder="Téléphone *"
-										pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$"
-										value="" required />
-								</div>
-								<div class="form-group">
-									<input type="text" name="cdp" class="form-control"
-										placeholder="Code postal *"
-										pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" value="" required />
-								</div>
-								<div class="form-group">
-									<input type="text" name="vile" class="form-control"
-										placeholder="Ville *" value="" />
-								</div>
-								<div class="form-group">
-									<input type="text" name="rue" class="form-control"
-										placeholder="Rue *" value="" />
+								
+								<div class="col-md-6">
+									<div class="form-group">
+										<input type="email" name="email" class="form-control" value="${ utilisateur.email }" />
+									</div>
+									<div class="form-group">
+										<input type="tel" name="phone" class="form-control" value="${ utilisateur.telephone }" />
+									</div>
+									<div class="form-group">
+										<input type="text" name="cdp" class="form-control" value="${ utilisateur.codePostal }" />
+									</div>
+									<div class="form-group">
+										<input type="text" name="vile" class="form-control" value="${ utilisateur.ville }" />
+									</div>
+									<div class="form-group">
+										<input type="text" name="rue" class="form-control" value="${ utilisateur.rue }" />
+									</div>
 								</div>
 							</div>
-						</div>
+						</form>
 						<div class="col-md-9" style="margin: 0 auto; display: flex;">
 							<input type="submit" class="btnRegister" value="Enregistrer" />
-							<input type="submit" class="btnRegister"
-								value="Supprimer mon compte" style="background-color: #b30000;" />
+							<input type="submit" class="btnRegister" value="Supprimer mon compte" style="background-color: #b30000;" />
 						</div>
 					</div>
 
