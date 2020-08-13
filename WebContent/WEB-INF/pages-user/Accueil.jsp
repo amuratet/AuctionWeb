@@ -152,8 +152,10 @@
 					<div class="card articleContent">
 						<div class="articleEntete">${ article.nom }</div>
 						<div class="unArticle">
-							<img src="<%=request.getContextPath()%>/images/${ article.catLibelle }.jpg"
+<%-- 							<img src="<%=request.getContextPath()%>/images/${ article.catLibelle }.jpg" --%>
+							<img src="<%=request.getContextPath()%>/uploaded/${empty article.photo ? article.catLibelle : article.photo }${empty article.photo ? '.jpg' : ''}"
 								class="img-responsive" alt="Image">
+<%-- 							<img src="<%=request.getContextPath()%>/uploaded/dontTread.jpg" --%>
 							<p class="articleDescription">
 								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
 								<a href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}"
