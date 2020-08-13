@@ -108,15 +108,15 @@
 						</select>
 
 					</div>
-					<input id="upload" type="file" class="form-control border-0" style="background-color: #60de5b" name="image">
+						<input id="upload" type="file" onchange="readURL(this);" name="image" />
 						<label for="upload"	class="btn btn-light m-0 rounded-pill px-4">
 							<i class="fa fa-cloud-upload mr-2 text-muted"></i>
 							<small class="text-uppercase font-weight-bold text-muted">Télécharger une image</small>
 						</label>
 
 				</div>
-				<div class="image-area mt-4">
-					<img id="imageResult" src="#" alt="image" class="img-fluid rounded shadow-sm mx-auto d-block">
+				<div class="image-area mt-4" style="padding: 1em;">
+						<img id="blah" src="<%=request.getContextPath()%>/images/dontTread2.jpg" alt="image" class="img-fluid rounded shadow-sm mx-auto d-block" style="max-width: 180px;"/>
 				</div>
 
 
@@ -147,5 +147,19 @@
 	<!-- Bootstrap core JavaScript -->
 	<script src="<%=request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>
 	<script src="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/js/bootstrap.js"></script>
+		<script type="text/javascript">
+	    function readURL(input) {
+	        if (input.files && input.files[0]) {
+	            var reader = new FileReader();
+	
+	            reader.onload = function (e) {
+	                $('#blah')
+	                    .attr('src', e.target.result);
+	            };
+	
+	            reader.readAsDataURL(input.files[0]);
+	        }
+	    }
+	</script>
 </body>
 </html>
