@@ -1,6 +1,6 @@
 package fr.eni.AuctionWebapp.BO;
 
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * Classe pour définir l'objet Article (en DB : ARTICLES_VENDUS)
@@ -34,6 +34,16 @@ public class Article {
 	// =======================================================
 	// 					CONSTRUCTEURS
 	// =======================================================
+	public Article(String nom, String description, Date dateDebut, Date dateFin, int prixInitial, int idCategorie, int idVendeur, String photo) {
+		this.nom = nom;
+		this.description = description;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.prixInitial = prixInitial;
+		this.idCategorie = idCategorie;
+		this.idVendeur = idVendeur;
+		this.photo = photo;
+	}
 	public Article(int id, String nom, String description, Date dateDebut, Date dateFin, int prixInitial, int prixVente,
 			int idUtilisateur, int idCategorie, String photo, String catLibelle, String catNomFr, int idVendeur, String pseudoVendeur) {
 		this.id = id;
@@ -51,7 +61,7 @@ public class Article {
 		this.idVendeur = idVendeur;
 		this.pseudoVendeur = pseudoVendeur;
 	}
-
+	
 	// =======================================================
 	// 					GETTERS & SETTERS
 	// =======================================================

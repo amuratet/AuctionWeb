@@ -118,6 +118,6 @@ INSERT INTO ARTICLES_VENDUS (nom_article, description ,date_debut_encheres ,date
         
         
         
-
+update UTILISATEURS set administrateur = 1 where pseudo = 'Tchoupi';
 
 
