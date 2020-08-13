@@ -181,9 +181,9 @@ a.nomVendeur {
 	display: flex;
 }
 .unArticle img {
-	height: 100%;
-	width: 50%;
-	object-fit: cover;
+    height: 15em;
+    width: 15em;
+    object-fit: cover;
 }
 .articlesPagination {
 	display: flex!important;
