@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -97,10 +96,11 @@
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
 						<h3 class="register-heading">Profil de ${ utilisateur.pseudo }</h3>
-						<form action="<%=request.getContextPath()%>/ProfilCree" method="post">
+						<form action="<%=request.getContextPath()%>/ProfilModifier" method="post">
 							<div class="row register-form">
 								<div class="col-md-6">
 									<div class="form-group">
+										<input type="hidden" name="vendeurId" value="${ utilisateur.id }"/>
 										<input type="text" name="pseudo" class="form-control" value="${ utilisateur.pseudo }" />
 									</div>
 									<div class="form-group">
@@ -131,16 +131,18 @@
 										<input type="text" name="cdp" class="form-control" value="${ utilisateur.codePostal }" />
 									</div>
 									<div class="form-group">
-										<input type="text" name="vile" class="form-control" value="${ utilisateur.ville }" />
+										<input type="text" name="ville" class="form-control" value="${ utilisateur.ville }" />
 									</div>
 									<div class="form-group">
 										<input type="text" name="rue" class="form-control" value="${ utilisateur.rue }" />
 									</div>
 								</div>
 							</div>
-						</form>
 						<div class="col-md-9" style="margin: 0 auto; display: flex;">
 							<input type="submit" class="btnRegister" value="Enregistrer" />
+						</div>
+						</form>
+						<div class="col-md-9" style="margin: 0 auto; display: flex;">
 							<input type="submit" class="btnRegister" value="Supprimer mon compte" style="background-color: #b30000;" />
 						</div>
 					</div>
