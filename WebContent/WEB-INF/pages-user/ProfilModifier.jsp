@@ -138,11 +138,11 @@
 									</div>
 								</div>
 							</div>
-						<div class="col-md-9" style="margin: 0 auto; display: flex;">
+						<div class="col-md-9" style="margin-bottom: 4em;" >
 							<input type="submit" class="btnRegister" value="Enregistrer" />
 						</div>
 						</form>
-						<div class="col-md-9" style="margin: 0 auto; display: flex;">
+						<div class="col-md-9" >
 							<input type="submit" class="btnRegister" value="Supprimer mon compte" style="background-color: #b30000;" />
 						</div>
 					</div>
