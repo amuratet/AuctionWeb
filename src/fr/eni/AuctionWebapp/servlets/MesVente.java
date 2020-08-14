@@ -122,7 +122,7 @@ public class MesVente extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		request.setAttribute("succes", "Votre article a bien été mis en vente.");
 	
 		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages-user/MesVente.jsp");
 		rd.forward(request, response);	

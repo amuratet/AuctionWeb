@@ -69,7 +69,7 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer">Mon
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/ProfilCreer?compte=<%=userId%>">Mon
 						profil</a></li>
 				<li class="nav-item"><a class="nav-link" href="#">Se déconnecter</a></li>
 				<%

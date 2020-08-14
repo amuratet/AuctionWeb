@@ -49,7 +49,7 @@
 				<%
 					if (isConnected) {
 				%>
-				<li class="nav-item"><a class="nav-link" href="#">Vendre un article</a></li>
+				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/MesVente">Vendre un article</a></li>
 				<%
 					}
 				%>
