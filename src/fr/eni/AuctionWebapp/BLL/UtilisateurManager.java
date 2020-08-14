@@ -1,5 +1,6 @@
 package fr.eni.AuctionWebapp.BLL;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import fr.eni.AuctionWebapp.BO.Utilisateur;
@@ -40,7 +41,7 @@ public class UtilisateurManager {
 		utilisateurDao.insert(utilisateur);
 	}
 	
-	public void update(Utilisateur utilisateur) throws DALException {
+	public void update(Utilisateur utilisateur) throws DALException, SQLException {
 		utilisateurDao.update(utilisateur);
 	}
 

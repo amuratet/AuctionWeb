@@ -22,6 +22,7 @@ public class ProfilCreer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("vendeurId : " + request.getParameter("compte"));
 		int vendeurId = Integer.parseInt(request.getParameter("compte"));
 
 		System.out.println("Id du vendeur : " + vendeurId + " " + vendeurId instanceof String ? "oui" : "non" );
