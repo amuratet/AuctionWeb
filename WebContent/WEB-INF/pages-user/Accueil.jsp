@@ -11,14 +11,14 @@
 <meta name="description" content="Auction web app">
 <meta name="author" content="Équipe Delta">
 <title>Nos amis les objets</title>
-<!-- 
- -->
+
 <!-- Bootstrap core CSS -->
 <link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css"
 	rel="stylesheet">
 
 <!-- Custom styles for this template -->
 <link href="<%=request.getContextPath()%>/css/ajustementsPerso.css" rel="stylesheet">
+<link href="<%=request.getContextPath()%>/css/introEtAccueil.css" rel="stylesheet">
 <link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -29,10 +29,6 @@
 <body>
 
 	<%
-		Boolean isConnected = session.getAttribute("userId") != null;
-		String userId = (String) session.getAttribute("userId");
-		Boolean isAdmin = session.getAttribute("isAdmin") == "oui";
-
 		Integer nbArticles = 35; /* request.get...() */
 		Integer articlesParPage = 10;
 		Integer currentPagination = 0; /* à faire mouvoir */
@@ -59,55 +55,8 @@
 		</div>
 	</div>
 
-	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
-		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil">AuctionWebapp</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
-			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
-		<div class="collapse navbar-collapse navFlex" id="navbarNav">
-			<ul class="navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
-						class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="">Enchères</a></li>
-				<%
-					if (isConnected) {
-				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/MesVente">Vendre un article</a></li>
-				<%
-					}
-				%>
-			</ul>
-			<ul class="navbar-nav">
-				<%
-					if (isAdmin) {
-				%>
-				<li class="nav-item nav-link auctionAdmin">Admin !</li>
-				<%
-					}
-				%>
-				<%
-					if (isConnected) {
-				%>
-				<li class="nav-item"><a class="nav-link"
-					href="<%=request.getContextPath()%>/ProfilCreer?compte=<%=userId%>">Mon profil</a></li>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Se
-						déconnecter</a></li>
-				<%
-					} else {
-				%>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Connexion">Se
-						connecter</a></li>
-				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Inscription">S'inscrire</a></li>
-				<%
-					}
-				%>
-			</ul>
-		</div>
-	</nav>
+	<!-- ============================== NAVBAR ============================== -->
+	<%@ include file="fragments/navbar.jspf" %>
 
 
 	<!-- On s'assure que tout s'est bien passé sinon alert -->
@@ -152,15 +101,15 @@
 					<div class="card articleContent">
 						<div class="articleEntete">${ article.nom }</div>
 						<div class="unArticle">
-<%-- 							<img src="<%=request.getContextPath()%>/images/${ article.catLibelle }.jpg" --%>
 							<img src="<%=request.getContextPath()%>/uploaded/${empty article.photo ? article.catLibelle : article.photo }${empty article.photo ? '.jpg' : ''}"
 								class="img-responsive" alt="Image">
-<%-- 							<img src="<%=request.getContextPath()%>/uploaded/dontTread.jpg" --%>
-							<p class="articleDescription">
-								<span class="catArticle">${ article.catNomFr }</span><br />${article.description} <br>
-								<a href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}"
-									class="nomVendeur"> - ${ article.pseudoVendeur } - </a>
-							</p>
+							<div class="articleDescription2">
+								<div class="catEtDescription">
+									<p class="catArticle2">${ article.catNomFr }</p>
+									<p class="articleDescriptionContenu">${article.description}</p>
+								</div>
+								<p class="pNomVendeur"><a class="nomVendeur" href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}" class="nomVendeur2">${ article.pseudoVendeur }</a></p>
+							</div>
 						</div>
 						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
 					</div>
@@ -192,10 +141,8 @@
 	<br>
 
 
-	<!-- FOOTER -->
-	<footer class="container-fluid text-center bg-dark text-secondary auctionFooter">
-		<p>AuctionWebTeam ©ENI-2020 Amilcar | Lewis | Victor</p>
-	</footer>
+	<!-- ============================== FOOTER ============================== -->
+	<%@ include file="fragments/footer.jspf" %>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="<%=request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>

@@ -1,6 +1,26 @@
 @charset "UTF-8";
 
 /***************************************************
+			FONTS
+****************************************************/
+@font-face {
+	font-family: creamCake;
+	src: url("../../fonts/CreamCake.ttf") format("truetype");
+}
+@font-face {
+	font-family: CaviarDreams;
+	src: url("../../fonts/CaviarDreams.ttf") format("truetype");
+}
+@font-face {
+	font-family: PeintureFraiche;
+	src: url("../../fonts/PeintureFraiche.ttf") format("truetype");
+}
+@font-face {
+	font-family: UrbanHeroes;
+	src: url("../../fonts/UrbanHeroes.ttf") format("truetype");
+}
+
+/***************************************************
 			NAVBAR
 ****************************************************/
 .auctionNavbar {

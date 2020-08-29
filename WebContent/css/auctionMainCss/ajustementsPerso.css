@@ -1,0 +1,173 @@
+@charset "UTF-8";
+
+/***************************************************
+			PAGE DEMO
+****************************************************/
+.mainContainer {
+    background: linear-gradient(to bottom right, rgba(243, 196, 124, 0.5), rgba(44, 25, 31, 0.5)), url("../vendor/Patterns/circles-light.png");
+    font-family: "Linux Biolinum G","Fira Code", sans-serif;
+    height: 95vh;
+    width: 100%!important;
+    padding: 2em 1em;
+}
+.mainContainer a.entree {
+	transition: 1s;
+	display: inline-block;
+	width: 25%;
+	font-size: 2em;
+	margin: auto;
+	padding: 1em;
+	background-color: rgba(255,255,255,.5);
+	text-align: center;
+	border-radius: .2em;
+	border: 1px solid rgba(0,0,0,.5);
+}
+.mainContainer a.entree:hover {
+	text-decoration: none;
+	transition: .2s;
+	background-color: rgba(255,255,255,.8);
+}
+.accueilGo {
+	display: flex;
+	flex-flow: row nowrap;
+}
+
+.pictosTeam {
+	margin-top: 5em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+.logoTeam {
+	margin-bottom: 2em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+.pictosTeam img {
+	margin: 2em;
+	border-radius: 1em;
+}
+
+/***************************************************
+			ACCUEIL
+****************************************************/
+.auctionEnteteAccueil {
+    background-image: linear-gradient(to bottom right, rgba(12, 157, 203, 0.5), rgba(12, 203, 67, 0.5)), url("../images/auction2.jpg");
+    background-attachment: fixed;
+    background-size: 100vw;
+    border-radius: 0;
+}
+.jumboH1 {
+	display: inline-block;
+ 	padding: .3em;
+	margin: 0 auto;
+	border-radius: .1em;
+	background: linear-gradient(to bottom right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+	font-family: PeintureFraiche, sans-serif, serif;
+	font-size: 4em;
+	text-shadow: 1px 1px 5px rgba(255,255,255,.5), 1px -1px 5px rgba(255,255,255,.5), -1px 1px 5px rgba(255,255,255,.5), -1px -1px 5px rgba(255,255,255,.5);
+}
+.jumboH1 span {
+	font-family: UrbanHeroes,CaviarDreams,PeintureFraiche,creamCake, sans-serif, serif;
+	font-size: .5em;
+}
+.jumboMarteau {
+	position: relative;
+	top: -2rem;
+}
+.jumboPictos {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+.jumboPictos img {
+	display: block;
+	background-color: rgba(0,0,0,.5);
+	width: 4em;
+	margin: 0 .5em;
+	padding: .5em;
+	border-radius: 5%;
+}
+.auctionFiltres {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: flex-start;
+	margin: 1em;
+}
+.auctionFiltres p {
+	font-size: 1.5em;
+	margin-left: 1em;
+}
+.auctionFiltres form {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+}
+
+.filtresSelect, .auctionFiltres button {
+	width: 10em;
+	color: #007bff;
+	background-color: #fff;
+	padding: .5rem;
+	border: 1px solid #dee2e6;
+	border-radius: 0.25rem;
+	margin-left: 1em;
+	margin-left: 1em;
+}
+
+/***************************************************
+			ARTICLES
+****************************************************/
+.articleDisplay {
+	padding:1%;
+}
+.articleContent {
+	padding: .5em;
+	border-radius: .3em;
+	background-color: #eee;
+}
+.articleEntete {
+	padding: .5em;
+	text-align: center;
+	border-bottom: 1px solid #fff;
+	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3));
+	border-radius: .3em .3em 0 0;
+}
+.catArticle {
+	display: inline-block;
+	margin: auto;
+	font-weight: bold;
+	margin-left: 1em;
+	padding: .2em .8em .1em .8em;
+	border-radius: .2em;
+	color: #2134ae;
+	background-color: #cbe5ff;
+}
+.articleDescription {
+	padding: .5em;
+}
+a.nomVendeur {
+	font-weight: bold;
+	font-style: italic;
+}
+.articlePied {
+	padding: .5em 1em;
+	background-color: rgba(12, 203, 67, 0.3);
+	border-radius: 0 0 .3em .3em;
+}
+.unArticle {
+	display: flex;
+}
+.unArticle img {
+    height: 15em;
+    width: 15em;
+    object-fit: cover;
+}
+.articlesPagination {
+	display: flex!important;
+	justify-content: center!important;
+}
+ 
+ 

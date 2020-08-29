@@ -71,7 +71,7 @@ public class Connexion extends HttpServlet {
 	}
 
 	// =======================================================
-	// MÉTHODES PRIVÉES
+	// 					MÉTHODES PRIVÉES
 	// =======================================================
 	private String checkStringFullfilled(String chaine) {
 		if (chaine == null || chaine.isBlank() || chaine.isEmpty()) {

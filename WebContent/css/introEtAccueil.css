@@ -1,46 +1,32 @@
 @charset "UTF-8";
 
 /***************************************************
-			FONTS
-****************************************************/
-@font-face {
-	font-family: creamCake;
-	src: url("../fonts/CreamCake.ttf") format("truetype");
-}
-@font-face {
-	font-family: CaviarDreams;
-	src: url("../fonts/CaviarDreams.ttf") format("truetype");
-}
-@font-face {
-	font-family: PeintureFraiche;
-	src: url("../fonts/PeintureFraiche.ttf") format("truetype");
-}
-@font-face {
-	font-family: UrbanHeroes;
-	src: url("../fonts/UrbanHeroes.ttf") format("truetype");
-}
-
-/***************************************************
 			PAGE DEMO
 ****************************************************/
 .mainContainer {
     background: linear-gradient(to bottom right, rgba(243, 196, 124, 0.5), rgba(44, 25, 31, 0.5)), url("../vendor/Patterns/circles-light.png");
     font-family: "Linux Biolinum G","Fira Code", sans-serif;
-    height: 95vh;
+    height: 100%;
+    min-height: 95vh;
     width: 100%!important;
     padding: 2em 1em;
 }
 .mainContainer a.entree {
 	transition: 1s;
 	display: inline-block;
-	width: 25%;
 	font-size: 2em;
-	margin: auto;
-	padding: 1em;
+	margin: 0 auto 2rem auto;
+	padding: .5em 3rem;
 	background-color: rgba(255,255,255,.5);
 	text-align: center;
 	border-radius: .2em;
-	border: 1px solid rgba(0,0,0,.5);
+	border: 1px solid rgba(0,0,0,.7);
+	animation: entreeTextAnim 1s ease-in-out infinite alternate;
+}
+@keyframes entreeTextAnim {
+  from {color: #0f60b8; background-color:rgba(0,0,0,.1); border-color: rgba(0,0,0,.7);}
+  
+  to	{color: #64abf7; background-color:rgba(0,0,0,.7); border-color: rgba(0,0,0,0);}
 }
 .mainContainer a.entree:hover {
 	text-decoration: none;
@@ -58,15 +44,41 @@
 	flex-flow: row wrap;
 	justify-content: center;
 }
+.pictosTeam img {
+	width: 10rem;
+	object-fit: cover;
+	margin: 2em;
+	border-radius: .5rem;
+}
 .logoTeam {
 	margin-bottom: 2em;
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: center;
 }
-.pictosTeam img {
-	margin: 2em;
-	border-radius: 1em;
+.logoTeam img {
+	
+}
+
+@media screen and (max-width: 928px) {
+  .pictosTeam img {
+	margin: .5rem;
+  }
+}
+@media screen and (max-width: 384px) {
+  .pictosTeam img {
+	width: 9rem;
+  }
+  .mainContainer a.entree {
+	margin-bottom: 4rem;
+	padding: .5em 3rem;
+	animation: entreeTextAnim 1s ease-in-out infinite alternate;
+  }
+}
+@media screen and (max-width: 350px) {
+  .pictosTeam img {
+	width: 100%;
+  }
 }
 
 /***************************************************
@@ -74,9 +86,13 @@
 ****************************************************/
 .auctionEnteteAccueil {
     background-image: linear-gradient(to bottom right, rgba(12, 157, 203, 0.5), rgba(12, 203, 67, 0.5)), url("../images/auction2.jpg");
-    background-attachment: fixed;
-    background-size: 100vw;
+/*     background-attachment: fixed; */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+/*     background-size: 100vw; */
     border-radius: 0;
+    padding: 1rem 0;
 }
 .jumboH1 {
 	display: inline-block;
@@ -137,6 +153,26 @@
 	margin-left: 1em;
 }
 
+@media screen and (max-width: 1024px) {
+  .jumboH1 {
+	font-size: 3rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .jumboH1 {
+	font-size: 2.2rem;
+  }
+  .jumboMarteau {
+    top: -1rem;
+  }
+  .jumboPictos img {
+    width: 3em;
+    margin: 0 .3em;
+    padding: .3em;
+    border-radius: 5%;
+  }
+}
+
 /***************************************************
 			ARTICLES
 ****************************************************/
@@ -155,6 +191,58 @@
 	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3));
 	border-radius: .3em .3em 0 0;
 }
+.articleDescription {
+	padding: .5em;
+}
+.articleDescription2 {
+	height: 15em;
+	padding: .3rem;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: space-between;
+}
+.catEtDescription {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+}
+.catArticle2 {
+	display: inline-block;
+	margin: auto;
+	font-weight: bold;
+	margin-left: 1em;
+	margin-bottom: .3rem;
+	padding: .2em .8em .1em .8em;
+	border-radius: .2em;
+	color: #2134ae;
+	background-color: #cbe5ff;
+}
+.articleDescriptionContenu {
+	margin-bottom: 0;
+	line-height: 1.2rem;
+	height: 11rem;
+	overflow: auto;
+}
+.pNomVendeur {
+	margin-bottom: 0;
+	text-align: right;
+	padding-right: .5rem;
+}
+.pNomVendeur>a.nomVendeur {
+	transition: 1s;
+	font-weight: bold;
+	font-style: italic;
+	padding: .2rem;
+	border-radius: .2rem;
+	background-color: #dadada;
+	color: #2134ae;
+}
+.pNomVendeur>a.nomVendeur:hover {
+	transition: .2s;
+	background-color: #2134ae;
+	color: #dadada;
+	text-decoration: none;
+}
 .catArticle {
 	display: inline-block;
 	margin: auto;
@@ -165,13 +253,6 @@
 	color: #2134ae;
 	background-color: #cbe5ff;
 }
-.articleDescription {
-	padding: .5em;
-}
-a.nomVendeur {
-	font-weight: bold;
-	font-style: italic;
-}
 .articlePied {
 	padding: .5em 1em;
 	background-color: rgba(12, 203, 67, 0.3);
@@ -179,6 +260,7 @@ a.nomVendeur {
 }
 .unArticle {
 	display: flex;
+	flex-flow: row nowrap;
 }
 .unArticle img {
     height: 15em;
@@ -188,6 +270,38 @@ a.nomVendeur {
 .articlesPagination {
 	display: flex!important;
 	justify-content: center!important;
+}
+
+@media screen and (max-width: 1024px) {
+  .unArticle img {
+    width: 10em;
+  }
+}
+@media screen and (max-width: 992px) {
+  .unArticle {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+	.unArticle {
+	flex-direction: column;
+  }
+  .unArticle img {
+    width: 100%;
+  }
+  .articleEntete {
+    height: 4rem;
+  }
+  .articleDescription2 {
+	height: none;
+/* 	padding: .3rem; */
+/* 	display: flex; */
+/* 	flex-flow: column nowrap; */
+/* 	justify-content: space-between; */
+  }
+  .articleContent {
+    padding: 0;
+  }
 }
  
  

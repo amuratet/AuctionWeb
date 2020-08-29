@@ -13,9 +13,8 @@
 	<link href="<%=request.getContextPath()%>/vendor/bootstrap-4.5.0-dist/css/bootstrap.css" rel="stylesheet">
 	
 	<!-- Custom styles for this template -->
-	<link href="<%=request.getContextPath()%>/css/ajustementsPerso.css" rel="stylesheet">
-	
-	<!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> -->
+	<link href="<%=request.getContextPath()%>/css/introEtAccueil.css" rel="stylesheet">
+	<link href="<%=request.getContextPath()%>/css/auctionMainCss/recurentElements.css" rel="stylesheet">
 </head>
 
 
@@ -31,13 +30,13 @@
 	<div class="mainContainer">
 		
 		<div class="pictosTeam">
-			<img src="<%= request.getContextPath() %>/pictos/amilcar.jpg" alt="Alk" width="8%" style="display:inline-block;" />
-			<img src="<%= request.getContextPath() %>/pictos/lewis.jpg" alt="Guyzmo" width="8%" style="display:inline-block;" />
-			<img src="<%= request.getContextPath() %>/pictos/victor.jpg" alt="Cluster" width="8%" style="display:inline-block;" />
-			<img src="<%= request.getContextPath() %>/pictos/profCut.jpg" alt="Prof" width="8%" style="display:inline-block;" />
+			<img src="<%= request.getContextPath() %>/pictos/amilcar.jpg" alt="Alk" />
+			<img src="<%= request.getContextPath() %>/pictos/lewis.jpg" alt="Guyzmo" />
+			<img src="<%= request.getContextPath() %>/pictos/victor.jpg" alt="Cluster" />
+			<img src="<%= request.getContextPath() %>/pictos/profCut.jpg" alt="Prof" />
 		</div>
 		<div class="logoTeam">
-			<img src="<%= request.getContextPath() %>/pictos/logoAuctionWeb.png" alt="Logo team" width="15%;" />
+			<img src="<%= request.getContextPath() %>/pictos/logoAuctionWeb.png" alt="Logo team" />
 		</div>
 	
 		<div class="accueilGo">
