@@ -12,7 +12,7 @@
     padding: 2em 1em;
 }
 .mainContainer a.entree {
-	transition: 1s;
+/* 	transition: 1s; */
 	display: inline-block;
 	font-size: 2em;
 	margin: 0 auto 2rem auto;
@@ -21,17 +21,18 @@
 	text-align: center;
 	border-radius: .2em;
 	border: 1px solid rgba(0,0,0,.7);
-	animation: entreeTextAnim 1s ease-in-out infinite alternate;
+	animation: entreeTextAnim 3s ease-in-out infinite alternate;
 }
 @keyframes entreeTextAnim {
-  from {color: #0f60b8; background-color:rgba(0,0,0,.1); border-color: rgba(0,0,0,.7);}
+  from {color: #05458a; background-color:rgba(0,0,0,.1); border-color: rgba(0,0,0,.7);}
   
   to	{color: #64abf7; background-color:rgba(0,0,0,.7); border-color: rgba(0,0,0,0);}
 }
 .mainContainer a.entree:hover {
 	text-decoration: none;
-	transition: .2s;
+/* 	transition: 2s; */
 	background-color: rgba(255,255,255,.8);
+	animation: none;
 }
 .accueilGo {
 	display: flex;
@@ -84,6 +85,9 @@
 /***************************************************
 			ACCUEIL
 ****************************************************/
+.acceuilBodyContainer {
+    background: url("../vendor/Patterns/circles-light.png");
+}
 .auctionEnteteAccueil {
     background-image: linear-gradient(to bottom right, rgba(12, 157, 203, 0.5), rgba(12, 203, 67, 0.5)), url("../images/auction2.jpg");
 /*     background-attachment: fixed; */
@@ -180,15 +184,20 @@
 	padding:1%;
 }
 .articleContent {
-	padding: .5em;
+/* 	padding: .5em; */
 	border-radius: .3em;
-	background-color: #eee;
+/* 	background-color: #8ae234; */
+	background-color: 	rgba(138, 226, 52, .2);
+/* 	border: 1px solid #626262; */
 }
 .articleEntete {
 	padding: .5em;
 	text-align: center;
-	border-bottom: 1px solid #fff;
-	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3));
+/* 	border-bottom: 1px solid #fff; */
+/* 	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3)); */
+/* 	background: linear-gradient(to bottom, #7fe8e2, #bde892); */
+	background: linear-gradient(to bottom, #93e2b9, #e8f3dd);
+/* 	color: #93e2b9; */
 	border-radius: .3em .3em 0 0;
 }
 .articleDescription {
@@ -200,6 +209,7 @@
 	display: flex;
 	flex-flow: column nowrap;
 	justify-content: space-between;
+/* 	background-color: #e8f3dd; */
 }
 .catEtDescription {
 	display: flex;
@@ -215,7 +225,9 @@
 	padding: .2em .8em .1em .8em;
 	border-radius: .2em;
 	color: #2134ae;
-	background-color: #cbe5ff;
+/* 	background-color: #cbe5ff; */
+	background-color: #93e2b9;
+/* 	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3)); */
 }
 .articleDescriptionContenu {
 	margin-bottom: 0;
@@ -225,7 +237,7 @@
 }
 .pNomVendeur {
 	margin-bottom: 0;
-	text-align: right;
+/* 	text-align: right; */
 	padding-right: .5rem;
 }
 .pNomVendeur>a.nomVendeur {
@@ -234,8 +246,9 @@
 	font-style: italic;
 	padding: .2rem;
 	border-radius: .2rem;
-	background-color: #dadada;
 	color: #2134ae;
+/* 	background: linear-gradient(to bottom right, rgba(12, 157, 203, 0.3), rgba(12, 203, 67, 0.3)); */
+	background-color: #93e2b9;
 }
 .pNomVendeur>a.nomVendeur:hover {
 	transition: .2s;
@@ -255,12 +268,14 @@
 }
 .articlePied {
 	padding: .5em 1em;
-	background-color: rgba(12, 203, 67, 0.3);
+	background: linear-gradient(to bottom, #e8f3dd, #93e2b9);
 	border-radius: 0 0 .3em .3em;
 }
 .unArticle {
 	display: flex;
 	flex-flow: row nowrap;
+/* 	background-color: #e8f3dd; */
+	background-color: #e8f3dd;
 }
 .unArticle img {
     height: 15em;
@@ -283,6 +298,13 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .articleDescriptionContenu {
+	height: 7rem;
+  }
+  .articleDescription2 {
+	height: 12rem;
+	overflow: auto;
+  }
 	.unArticle {
 	flex-direction: column;
   }
@@ -292,15 +314,19 @@
   .articleEntete {
     height: 4rem;
   }
-  .articleDescription2 {
-	height: none;
-/* 	padding: .3rem; */
-/* 	display: flex; */
-/* 	flex-flow: column nowrap; */
-/* 	justify-content: space-between; */
-  }
   .articleContent {
     padding: 0;
+  }
+}
+@media screen and (max-width: 575px) {
+  .articleDisplay {
+    padding: .5rem 1rem;
+  }
+  .articleDescriptionContenu {
+	height: auto;
+  }
+  .articleDescription2 {
+	height: auto;
   }
 }
  

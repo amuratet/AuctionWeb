@@ -55,94 +55,96 @@
 		</div>
 	</div>
 
-	<!-- ============================== NAVBAR ============================== -->
-	<%@ include file="fragments/navbar.jspf" %>
-
-
-	<!-- On s'assure que tout s'est bien passé sinon alert -->
-	<%
-		if (request.getAttribute("erreur") != null) {
-	%>
-	<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
-	<%
-		} else if (request.getAttribute("succes") != null) {
-	%>
-	<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("succes")%></div>
-	<%
-		}
-	%>
-	<!-- FILTRES -->
-	<div class="auctionFiltres">
-		<p class="titreFiltrer">Filtrer</p>
-
-		<form action="<%=request.getContextPath()%>/Accueil" method="get">
-			<select name="filtreCategorie" class="filtresSelect">
-				<option value="">Catégories</option>
-
-				<c:forEach var="categorie" items="${ categories }">
-					<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
-				</c:forEach>
-
-			</select> <select name="date" class="filtresSelect">
-				<option value="">Date</option>
-				<option value="dateAsc">Croissant</option>
-				<option value="dateDesc">Décroissant</option>
-			</select>
-			<button type="submit">${ boutonFiltre }</button>
-		</form>
-
-	</div>
-
-	<!-- LISTE DES ARTICLES -->
-	<div class="container">
-		<div class="row">
-			<c:forEach var="article" items="${ articles }">
-				<div class="col-sm-6 articleDisplay">
-					<div class="card articleContent">
-						<div class="articleEntete">${ article.nom }</div>
-						<div class="unArticle">
-							<img src="<%=request.getContextPath()%>/uploaded/${empty article.photo ? article.catLibelle : article.photo }${empty article.photo ? '.jpg' : ''}"
-								class="img-responsive" alt="Image">
-							<div class="articleDescription2">
-								<div class="catEtDescription">
-									<p class="catArticle2">${ article.catNomFr }</p>
-									<p class="articleDescriptionContenu">${article.description}</p>
-								</div>
-								<p class="pNomVendeur"><a class="nomVendeur" href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}" class="nomVendeur2">${ article.pseudoVendeur }</a></p>
-							</div>
-						</div>
-						<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
-					</div>
-				</div>
-			</c:forEach>
-
-		</div>
-	</div>
-	<div aria-label="Page navigation example">
-		<ul class="pagination articlesPagination">
-			<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
-			<%
-				for (int i = 1; i <= maxPaginationsDisplay && (currentPagination < nbArticles); i++) {
-				currentPagination += articlesParPage;
-				if (i == maxPaginationsDisplay) {
-			%>
-			<li class="page-item"><a class="page-link" href="#"> ... </a></li>
-			<%
-				} else {
-			%>
-			<li class="page-item"><a class="page-link" href="#"><%=i%></a></li>
-			<%
-				}
+	<div class="acceuilBodyContainer">
+	
+		<!-- ============================== NAVBAR ============================== -->
+		<%@ include file="fragments/navbar.jspf" %>
+	
+		<!-- On s'assure que tout s'est bien passé (ou non) avec alert -->
+		<%
+			if (request.getAttribute("erreur") != null) {
+		%>
+		<div class="alert alert-danger auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("erreur")%></div>
+		<%
+			} else if (request.getAttribute("succes") != null) {
+		%>
+		<div class="alert alert-success auctionAlert" role="alert" style="text-align: center;"><%=request.getAttribute("succes")%></div>
+		<%
 			}
-			%>
-			<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
-		</ul>
+		%>
+		<!-- FILTRES -->
+		<div class="auctionFiltres">
+			<p class="titreFiltrer">Filtrer</p>
+	
+			<form action="<%=request.getContextPath()%>/Accueil" method="get">
+				<select name="filtreCategorie" class="filtresSelect">
+					<option value="">Catégories</option>
+	
+					<c:forEach var="categorie" items="${ categories }">
+						<option value="${ categorie.libelle }">${ categorie.nomFr }</option>
+					</c:forEach>
+	
+				</select> <select name="date" class="filtresSelect">
+					<option value="">Date</option>
+					<option value="dateAsc">Croissant</option>
+					<option value="dateDesc">Décroissant</option>
+				</select>
+				<button type="submit">${ boutonFiltre }</button>
+			</form>
+	
+		</div>
+	
+		<!-- LISTE DES ARTICLES -->
+		<div class="container">
+			<div class="row">
+				<c:forEach var="article" items="${ articles }">
+					<div class="col-sm-6 articleDisplay">
+						<div class="card articleContent">
+							<div class="articleEntete">${ article.nom }</div>
+							<div class="unArticle">
+								<img src="<%=request.getContextPath()%>/uploaded/${empty article.photo ? article.catLibelle : article.photo }${empty article.photo ? '.jpg' : ''}"
+									class="img-responsive" alt="Image">
+								<div class="articleDescription2">
+									<div class="catEtDescription">
+										<p class="catArticle2">${ article.catNomFr }</p>
+										<p class="articleDescriptionContenu">${article.description}</p>
+									</div>
+									<p class="pNomVendeur"><a class="nomVendeur" href="<%=request.getContextPath()%>/ProfilCreer?compte=${article.idVendeur}">${ article.pseudoVendeur }</a></p>
+								</div>
+							</div>
+							<div class="articlePied">Fin des enchères : ${ article.dateFin }</div>
+						</div>
+					</div>
+				</c:forEach>
+	
+			</div>
+		</div>
+		<div aria-label="Page navigation example">
+			<ul class="pagination articlesPagination">
+				<li class="page-item"><a class="page-link" href="#">Précédent</a></li>
+				<%
+					for (int i = 1; i <= maxPaginationsDisplay && (currentPagination < nbArticles); i++) {
+					currentPagination += articlesParPage;
+					if (i == maxPaginationsDisplay) {
+				%>
+				<li class="page-item"><a class="page-link" href="#"> ... </a></li>
+				<%
+					} else {
+				%>
+				<li class="page-item"><a class="page-link" href="#"><%=i%></a></li>
+				<%
+					}
+				}
+				%>
+				<li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+			</ul>
+		</div>
+		<br>
+	
+		<!-- ============================== FOOTER ============================== -->
+		<%@ include file="fragments/footer.jspf" %>
+		
 	</div>
-	<br>
-
-
-	<!-- ============================== FOOTER ============================== -->
-	<%@ include file="fragments/footer.jspf" %>
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="<%=request.getContextPath()%>/vendor/jquery/jquery.min.js"></script>

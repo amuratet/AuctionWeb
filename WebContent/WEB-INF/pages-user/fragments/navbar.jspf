@@ -7,12 +7,19 @@
 	<!-- NAVBAR -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark auctionNavbar">
 		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil">AuctionWebapp</a>
+		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
+			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
+		<%
+			if (isAdmin) {
+		%>
+			<i class="nav-item nav-link auctionAdmin">Admin&nbsp;!</i>
+		<%
+			}
+		%>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
 			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<a class="navbar-brand" href="<%=request.getContextPath()%>/Accueil"><img alt="Logo"
-			src="<%=request.getContextPath()%>/pictos/pictoAuctionWeb.png" width="55"></a>
 		<div class="collapse navbar-collapse navFlex" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/Accueil">Accueil<span
@@ -27,13 +34,6 @@
 				%>
 			</ul>
 			<ul class="navbar-nav">
-				<%
-					if (isAdmin) {
-				%>
-				<li class="nav-item nav-link auctionAdmin">Admin !</li>
-				<%
-					}
-				%>
 				<%
 					if (isConnected) {
 				%>

@@ -38,6 +38,19 @@
 	flex-flow: row nowrap;
 	justify-content: space-between;
 }
+.navLogoEtAdmin {
+	display: flex;
+}
+a.navbar-brand {
+	margin-top: .3rem;
+	margin-bottom: .3rem;
+}
+
+@media screen and (max-width: 992px) {
+  a.navbar-brand img {
+	display: none!important;
+  }
+}
 
 /***************************************************
 			FOOTER
